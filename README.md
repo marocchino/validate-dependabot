@@ -36,6 +36,7 @@ jobs:
       - uses: marocchino/validate-dependabot@v1
         id: validate
       - uses: marocchino/sticky-pull-request-comment@v2
+        if: always()
         with:
           header: validate-dependabot
           message: ${{ steps.validate.outputs.markdown }}

@@ -50,6 +50,9 @@ function run() {
             const { raw, message } = yield validate(path);
             core.setOutput('raw', raw);
             core.setOutput('markdown', message);
+            if (raw.errors.length !== 0) {
+                core.setFailed('exists errors');
+            }
         }
         catch (error) {
             core.setFailed(error.message);
@@ -72,10 +75,11 @@ function validate(path) {
             body: JSON.stringify({ 'config-file-body': yaml })
         });
         const raw = yield result.json();
+        core.debug(`response: ${JSON.stringify(raw)}`);
         let message;
         if ((raw === null || raw === void 0 ? void 0 : raw.errors.length) > 0) {
             const lines = raw.errors
-                .map(({ title, detail, source: { pointer } }) => `| ${title} | ${detail} | ${pointer} |`)
+                .map(({ title, detail, source }) => `| ${title} | ${detail} | ${source === null || source === void 0 ? void 0 : source.pointer} |`)
                 .join('\n');
             message = `
 🚫 dependabot errors

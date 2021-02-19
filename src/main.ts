@@ -8,6 +8,9 @@ async function run(): Promise<void> {
     const {raw, message} = await validate(path)
     core.setOutput('raw', raw)
     core.setOutput('markdown', message)
+    if (raw.errors.length !== 0) {
+      core.setFailed('exists errors')
+    }
   } catch (error) {
     core.setFailed(error.message)
   }
@@ -17,7 +20,7 @@ export async function validate(
   path: string
 ): Promise<{
   raw: {
-    errors: {title: string; detail: string; source: {pointer: string}}[]
+    errors: {title: string; detail: string; source?: {pointer: string}}[]
   }
   message: string
 }> {
@@ -38,6 +41,7 @@ export async function validate(
     }
   )
   const raw = await result.json()
+  core.debug(`response: ${JSON.stringify(raw)}`)
   let message
   if (raw?.errors.length > 0) {
     const lines = raw.errors
@@ -45,12 +49,12 @@ export async function validate(
         ({
           title,
           detail,
-          source: {pointer}
+          source
         }: {
           title: string
           detail: string
-          source: {pointer: string}
-        }) => `| ${title} | ${detail} | ${pointer} |`
+          source?: {pointer: string}
+        }) => `| ${title} | ${detail} | ${source?.pointer} |`
       )
       .join('\n')
     message = `
