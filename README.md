@@ -8,22 +8,6 @@ If you get a validation error when editing your config, you won't know if there'
 Even if the cycle is long and the alarm is not set, it may be detected much later.
 This library allows you to find problems in the PR stage.
 
-## Inputs
-
-### `path`
-
-**Required** path of config file. Default `".github/dependabot.yml"`.
-
-## Outputs
-
-### `raw`
-
-response body as json string
-
-### `markdown`
-
-errors as markdown table
-
 ## Usage
 
 ```yaml
@@ -48,3 +32,23 @@ jobs:
           message: ${{ steps.validate.outputs.markdown }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+## Inputs
+
+### `path`
+
+**Required** path of config file. Default `".github/dependabot.yml"`.
+
+## Outputs
+
+### `raw`
+
+response body as json string
+
+### `markdown`
+
+errors as markdown table
+
+## Any problem?
+
+Feel free to report issues. 😃
