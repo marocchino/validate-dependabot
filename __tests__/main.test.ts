@@ -37,6 +37,11 @@ describe('validate', () => {
             source: {
               pointer: '#/updates/8/commit-message/prefix'
             }
+          },
+          {
+            title: 'Unparseable',
+            detail:
+              "(): could not find expected ':' while scanning a simple key at line 10 column 1"
           }
         ]
       })
@@ -47,6 +52,7 @@ describe('validate', () => {
 | title | detail | source |
 | ----- | ------ | ------ |
 | Invalid | The property '#/updates/8/commit-message/prefix' was not of a maximum string length of 15 | #/updates/8/commit-message/prefix |
+| Unparseable | (): could not find expected ':' while scanning a simple key at line 10 column 1 | undefined |
 `,
       raw: {
         errors: [
@@ -57,6 +63,11 @@ describe('validate', () => {
               pointer: '#/updates/8/commit-message/prefix'
             },
             title: 'Invalid'
+          },
+          {
+            title: 'Unparseable',
+            detail:
+              "(): could not find expected ':' while scanning a simple key at line 10 column 1"
           }
         ]
       }

@@ -20,7 +20,7 @@ export async function validate(
   path: string
 ): Promise<{
   raw: {
-    errors: {title: string; detail: string; source: {pointer: string}}[]
+    errors: {title: string; detail: string; source?: {pointer: string}}[]
   }
   message: string
 }> {
@@ -53,7 +53,7 @@ export async function validate(
         }: {
           title: string
           detail: string
-          source: {pointer: string}
+          source?: {pointer: string}
         }) => `| ${title} | ${detail} | ${source?.pointer} |`
       )
       .join('\n')
