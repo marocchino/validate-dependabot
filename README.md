@@ -21,11 +21,23 @@ errors as markdown table
 ## Usage
 
 ```yaml
-- uses: marocchino/validate-dependabot@v1
-  id: validate
-- uses: marocchino/sticky-pull-request-comment@v2
-  with:
-    header: validate-dependabot
-    message: ${{ steps.validate.outputs.markdown }}
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+name: dependabot validate
+
+on:
+  pull_request:
+    paths:
+      - ".github/dependabot.yml"
+      - ".github/workflows/dependabot-validate.yml"
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: marocchino/validate-dependabot@v1
+        id: validate
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: validate-dependabot
+          message: ${{ steps.validate.outputs.markdown }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
