@@ -2,6 +2,12 @@
   <a href="https://github.com/marocchino/validate-dependabot/actions"><img alt="typescript-action status" src="https://github.com/marocchino/validate-dependabot/workflows/build-test/badge.svg"></a>
 </p>
 
+## Why?
+
+If you get a validation error when editing your config, you won't know if there's a problem until the next dependabot runs.
+Even if the cycle is long and the alarm is not set, it may be detected much later.
+This library allows you to find problems in the PR stage.
+
 ## Inputs
 
 ### `path`
