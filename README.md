@@ -6,7 +6,7 @@
 
 ### `path`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** path of config file. Default `".github/dependabot.yml"`.
 
 ## Outputs
 
