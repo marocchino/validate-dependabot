@@ -20,5 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
+        id: validate
+      - uses: marocchino/sticky-pull-request-comment@v2
         with:
-          milliseconds: 1000
+          header: validate-dependabot
+          message: ${{ steps.validate.outputs.markdown }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
