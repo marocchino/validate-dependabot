@@ -2,10 +2,18 @@ name: 'validate-dependabot'
 description: 'validate dependabot yaml'
 author: 'marocchino'
 inputs:
-  path: # change this
+  path:
     required: true
     description: 'path of dependabot yaml file'
     default: '.github/dependabot.yml'
+  success_message:
+    required: true
+    description: 'display on success'
+    default: '✅dependabot config looks good 👍'
+  failure_message:
+    required: true
+    description: 'display on failure'
+    default: '🚫 dependabot errors'
 runs:
   using: 'node12'
   main: 'dist/index.js'

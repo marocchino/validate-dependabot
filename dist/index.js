@@ -47,7 +47,9 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const path = core.getInput('path');
-            const { raw, message } = yield validate(path);
+            const successMessage = core.getInput('success_message');
+            const failureMessage = core.getInput('failure_message');
+            const { raw, message } = yield validate(path, successMessage, failureMessage);
             core.setOutput('raw', raw);
             core.setOutput('markdown', message);
             if (raw.errors.length !== 0) {
@@ -59,7 +61,7 @@ function run() {
         }
     });
 }
-function validate(path) {
+function validate(path, successMessage, failureMessage) {
     return __awaiter(this, void 0, void 0, function* () {
         core.debug(`validate against ${path}...`);
         const yaml = fs_1.readFileSync(path, 'utf-8');
@@ -82,14 +84,15 @@ function validate(path) {
                 .map(({ title, detail, source }) => `| ${title} | ${detail} | ${source === null || source === void 0 ? void 0 : source.pointer} |`)
                 .join('\n');
             message = `
-🚫 dependabot errors
+${failureMessage}
+
 | title | detail | source |
 | ----- | ------ | ------ |
 ${lines}
 `;
         }
         else {
-            message = '✅dependabot config looks good 👍';
+            message = successMessage;
         }
         return { raw, message };
     });

@@ -39,6 +39,14 @@ jobs:
 
 **Required** path of config file. Default `".github/dependabot.yml"`.
 
+### `success_message`
+
+**Required** display on success. Default `"✅dependabot config looks good 👍"`.
+
+### `failure_message`
+
+**Required** display on failure. Default `"🚫 dependabot errors"`.
+
 ## Outputs
 
 ### `raw`

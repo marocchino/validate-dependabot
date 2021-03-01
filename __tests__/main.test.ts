@@ -11,6 +11,8 @@ beforeEach(() => {
 // shows how the runner will run a javascript action with env / stdout protocol
 test.skip('test runs', () => {
   process.env['INPUT_PATH'] = '.github/dependabot.yml'
+  process.env['INPUT_SUCCESS_MESSAGE'] = '.github/dependabot.yml'
+  process.env['INPUT_FAILURE_MESSAGE'] = '.github/dependabot.yml'
   const np = process.execPath
   const ip = path.join(__dirname, '..', 'lib', 'main.js')
   const options: cp.ExecFileSyncOptions = {
@@ -21,7 +23,13 @@ test.skip('test runs', () => {
 describe('validate', () => {
   test('no errors', async () => {
     fetchMock.mockOnce(JSON.stringify({errors: []}))
-    expect(await validate('.github/dependabot.yml')).toEqual({
+    expect(
+      await validate(
+        '.github/dependabot.yml',
+        '✅dependabot config looks good 👍',
+        ''
+      )
+    ).toEqual({
       message: '✅dependabot config looks good 👍',
       raw: {errors: []}
     })
@@ -46,9 +54,12 @@ describe('validate', () => {
         ]
       })
     )
-    expect(await validate('.github/dependabot.yml')).toEqual({
+    expect(
+      await validate('.github/dependabot.yml', '', '🚫 dependabot errors')
+    ).toEqual({
       message: `
 🚫 dependabot errors
+
 | title | detail | source |
 | ----- | ------ | ------ |
 | Invalid | The property '#/updates/8/commit-message/prefix' was not of a maximum string length of 15 | #/updates/8/commit-message/prefix |

@@ -5,7 +5,9 @@ import {readFileSync} from 'fs'
 async function run(): Promise<void> {
   try {
     const path: string = core.getInput('path')
-    const {raw, message} = await validate(path)
+    const successMessage: string = core.getInput('success_message')
+    const failureMessage: string = core.getInput('failure_message')
+    const {raw, message} = await validate(path, successMessage, failureMessage)
     core.setOutput('raw', raw)
     core.setOutput('markdown', message)
     if (raw.errors.length !== 0) {
@@ -17,7 +19,9 @@ async function run(): Promise<void> {
 }
 
 export async function validate(
-  path: string
+  path: string,
+  successMessage: string,
+  failureMessage: string
 ): Promise<{
   raw: {
     errors: {title: string; detail: string; source?: {pointer: string}}[]
@@ -58,13 +62,14 @@ export async function validate(
       )
       .join('\n')
     message = `
-🚫 dependabot errors
+${failureMessage}
+
 | title | detail | source |
 | ----- | ------ | ------ |
 ${lines}
 `
   } else {
-    message = '✅dependabot config looks good 👍'
+    message = successMessage
   }
   return {raw, message}
 }
