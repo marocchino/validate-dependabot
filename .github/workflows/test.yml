@@ -28,4 +28,3 @@ jobs:
           message: |
             ${{ steps.validate.outputs.markdown }}
             ${{ steps.validate.outputs.raw }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
