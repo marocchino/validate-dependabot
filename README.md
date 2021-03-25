@@ -30,7 +30,6 @@ jobs:
         with:
           header: validate-dependabot
           message: ${{ steps.validate.outputs.markdown }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Inputs
