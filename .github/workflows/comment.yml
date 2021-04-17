@@ -1,0 +1,27 @@
+name: 'comment'
+on:
+  workflow_run:
+    workflows:
+      - "build-test"
+    types:
+      - completed
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.event == 'pull_request' }}
+    steps:
+      - name: on artifact
+        id: artifact
+        uses: marocchino/on_artifact@v1
+        with:
+          name: validate
+      - uses: marocchino/sticky-pull-request-comment@v2
+        if: always()
+        with:
+          header: validate-dependabot
+          number: ${{ steps.artifact.outputs.number }}
+          message: |
+            ${{ steps.artifact.outputs.markdown }}
+            ```json
+            ${{ steps.artifact.outputs.raw }}
+            ```

@@ -21,10 +21,18 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./
         id: validate
-      - uses: marocchino/sticky-pull-request-comment@v2
-        if: always()
+      - run: |
+          set -o pipefail
+          mkdir -p ./pr
+          echo ${{ github.event.number }} | tee ./pr/number
+          cat <<EOT >> ./pr/markdown
+          ${{ steps.validate.outputs.markdown }}
+          EOT
+          cat <<EOT >> ./pr/raw
+          ${{ steps.validate.outputs.raw }}
+          EOT
+      - uses: actions/upload-artifact@v2
+        if: ${{ github.event_name == 'pull_request' && (success() || failure()) }}
         with:
-          header: validate-dependabot
-          message: |
-            ${{ steps.validate.outputs.markdown }}
-            ${{ steps.validate.outputs.raw }}
+          name: validate
+          path: pr/
