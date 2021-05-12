@@ -15,7 +15,7 @@ jobs:
         uses: marocchino/on_artifact@v1
         with:
           name: validate
-      - uses: marocchino/sticky-pull-request-comment@v2
+      - uses: marocchino/sticky-pull-request-comment@v2.1.0
         if: always()
         with:
           header: validate-dependabot
