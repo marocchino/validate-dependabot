@@ -11,7 +11,7 @@ async function run(): Promise<void> {
     core.setOutput('raw', raw)
     core.setOutput('markdown', message)
     if (raw.errors.length !== 0) {
-      core.setFailed('exists errors')
+      core.setFailed(message)
     }
   } catch (error) {
     core.setFailed(error.message)
