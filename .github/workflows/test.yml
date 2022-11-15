@@ -31,7 +31,7 @@ jobs:
           cat <<EOT >> ./pr/raw
           ${{ steps.validate.outputs.raw }}
           EOT
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: ${{ github.event_name == 'pull_request' && (success() || failure()) }}
         with:
           name: validate
