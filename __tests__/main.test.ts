@@ -2,7 +2,7 @@ import * as process from 'process'
 import * as cp from 'child_process'
 import * as path from 'path'
 import fetchMock from 'jest-fetch-mock'
-import {validate} from '../src/main'
+import {validateDependabot} from '../src/main'
 
 beforeEach(() => {
   fetchMock.resetMocks()
@@ -11,8 +11,8 @@ beforeEach(() => {
 // shows how the runner will run a javascript action with env / stdout protocol
 test.skip('test runs', () => {
   process.env['INPUT_PATH'] = '.github/dependabot.yml'
-  process.env['INPUT_SUCCESS_MESSAGE'] = '.github/dependabot.yml'
-  process.env['INPUT_FAILURE_MESSAGE'] = '.github/dependabot.yml'
+  process.env['INPUT_SUCCESS_MESSAGE'] = '✅dependabot config looks good 👍'
+  process.env['INPUT_FAILURE_MESSAGE'] = '🚫 dependabot errors'
   const np = process.execPath
   const ip = path.join(__dirname, '..', 'lib', 'main.js')
   const options: cp.ExecFileSyncOptions = {
@@ -20,68 +20,45 @@ test.skip('test runs', () => {
   }
   console.log(cp.execFileSync(np, [ip], options).toString())
 })
-describe('validate', () => {
+describe('validateDependabot', () => {
   test('no errors', async () => {
     fetchMock.mockOnce(JSON.stringify({errors: []}))
     expect(
-      await validate(
+      await validateDependabot(
         '.github/dependabot.yml',
         '✅dependabot config looks good 👍',
-        ''
+        '🚫 dependabot errors'
       )
     ).toEqual({
-      message: '✅dependabot config looks good 👍',
-      raw: {errors: []}
+      message: '✅dependabot config looks good 👍'
     })
   })
   test('with errors', async () => {
-    fetchMock.mockOnce(
-      JSON.stringify({
-        errors: [
-          {
-            title: 'Invalid',
-            detail:
-              "The property '#/updates/8/commit-message/prefix' was not of a maximum string length of 15",
-            source: {
-              pointer: '#/updates/8/commit-message/prefix'
-            }
-          },
-          {
-            title: 'Unparseable',
-            detail:
-              "(): could not find expected ':' while scanning a simple key at line 10 column 1"
-          }
-        ]
-      })
-    )
     expect(
-      await validate('.github/dependabot.yml', '', '🚫 dependabot errors')
+      await validateDependabot(
+        '__tests__/dependabot-error.yml',
+        '✅dependabot config looks good 👍',
+        '🚫 dependabot errors'
+      )
     ).toEqual({
       message: `
 🚫 dependabot errors
 
-| title | detail | source |
-| ----- | ------ | ------ |
-| Invalid | The property '#/updates/8/commit-message/prefix' was not of a maximum string length of 15 | #/updates/8/commit-message/prefix |
-| Unparseable | (): could not find expected ':' while scanning a simple key at line 10 column 1 | undefined |
+| keyword | message | dataPath |
+| ------- | ------- | -------- |
+| required | should have required property 'directory' | .updates[0] |
 `,
-      raw: {
-        errors: [
-          {
-            detail:
-              "The property '#/updates/8/commit-message/prefix' was not of a maximum string length of 15",
-            source: {
-              pointer: '#/updates/8/commit-message/prefix'
-            },
-            title: 'Invalid'
+      errors: [
+        {
+          dataPath: '.updates[0]',
+          keyword: 'required',
+          message: "should have required property 'directory'",
+          params: {
+            missingProperty: 'directory'
           },
-          {
-            title: 'Unparseable',
-            detail:
-              "(): could not find expected ':' while scanning a simple key at line 10 column 1"
-          }
-        ]
-      }
+          schemaPath: '#/required'
+        }
+      ]
     })
   })
 })

@@ -15,5 +15,5 @@ inputs:
     description: 'display on failure'
     default: '🚫 dependabot errors'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'

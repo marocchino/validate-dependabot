@@ -1,5 +1,6 @@
 import * as core from '@actions/core'
-import fetch from 'node-fetch'
+import Ajv, {ErrorObject} from 'ajv'
+import YAML from 'yaml'
 import {readFileSync} from 'fs'
 
 async function run(): Promise<void> {
@@ -7,10 +8,14 @@ async function run(): Promise<void> {
     const path: string = core.getInput('path')
     const successMessage: string = core.getInput('success_message')
     const failureMessage: string = core.getInput('failure_message')
-    const {raw, message} = await validate(path, successMessage, failureMessage)
-    core.setOutput('raw', raw)
+    const {errors, message} = await validateDependabot(
+      path,
+      successMessage,
+      failureMessage
+    )
+    core.setOutput('errors', errors)
     core.setOutput('markdown', message)
-    if (raw.errors.length !== 0) {
+    if (errors?.length !== 0) {
       core.setFailed(message)
     }
   } catch (error) {
@@ -20,60 +25,47 @@ async function run(): Promise<void> {
   }
 }
 
-export async function validate(
+export async function validateDependabot(
   path: string,
   successMessage: string,
   failureMessage: string
 ): Promise<{
-  raw: {
-    errors: {title: string; detail: string; source?: {pointer: string}}[]
-  }
+  errors?: ErrorObject[] | undefined
   message: string
 }> {
+  const ajv = new Ajv({extendRefs: true})
   core.debug(`validate against ${path}...`)
+
+  // load target file
   const yaml = readFileSync(path, 'utf-8')
-  const result = await fetch(
-    'https://api.dependabot.com/config_files/validate',
-    {
-      method: 'POST',
-      headers: {
-        Host: 'api.dependabot.com',
-        Referer: 'https://dependabot.com/docs/config-file/validator/',
-        'Content-Type': 'application/json',
-        Origin: 'https://dependabot.com',
-        Connection: 'keep-alive'
-      },
-      body: JSON.stringify({'config-file-body': yaml})
-    }
-  )
-  const raw = await result.json()
-  core.debug(`response: ${JSON.stringify(raw)}`)
-  let message
-  if (raw?.errors.length > 0) {
-    const lines = raw.errors
-      .map(
-        ({
-          title,
-          detail,
-          source
-        }: {
-          title: string
-          detail: string
-          source?: {pointer: string}
-        }) => `| ${title} | ${detail} | ${source?.pointer} |`
-      )
-      .join('\n')
-    message = `
+  const json = YAML.parse(yaml)
+
+  // load schema
+  const schemaText = readFileSync('dependabot-2.0.json', 'utf-8')
+  const schema = JSON.parse(schemaText)
+
+  // validate
+  const validate = ajv.compile(schema)
+  const valid = await validate(json)
+
+  if (valid) {
+    return {message: successMessage}
+  }
+  core.debug(`errors: ${JSON.stringify(validate.errors)}`)
+  const lines = validate.errors
+    ?.map(
+      ({keyword, message, dataPath}: ErrorObject) =>
+        `| ${keyword} | ${message} | ${dataPath} |`
+    )
+    .join('\n')
+  const message = `
 ${failureMessage}
 
-| title | detail | source |
-| ----- | ------ | ------ |
+| keyword | message | dataPath |
+| ------- | ------- | -------- |
 ${lines}
 `
-  } else {
-    message = successMessage
-  }
-  return {raw, message}
+  return {errors: validate.errors, message}
 }
 
 run()
