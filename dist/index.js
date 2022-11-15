@@ -56,7 +56,7 @@ function run() {
             const { errors, message } = yield validateDependabot(path, successMessage, failureMessage);
             core.setOutput('errors', errors);
             core.setOutput('markdown', message);
-            if ((errors === null || errors === void 0 ? void 0 : errors.length) !== 0) {
+            if (errors) {
                 core.setFailed(message);
             }
         }
