@@ -1,13 +1,8 @@
 import * as process from 'process'
 import * as cp from 'child_process'
 import * as path from 'path'
-import fetchMock from 'jest-fetch-mock'
 import {validateDependabot} from '../src/main'
 
-beforeEach(() => {
-  fetchMock.resetMocks()
-  jest.resetModules()
-})
 // shows how the runner will run a javascript action with env / stdout protocol
 test.skip('test runs', () => {
   process.env['INPUT_PATH'] = '.github/dependabot.yml'
@@ -22,7 +17,6 @@ test.skip('test runs', () => {
 })
 describe('validateDependabot', () => {
   test('no errors', async () => {
-    fetchMock.mockOnce(JSON.stringify({errors: []}))
     expect(
       await validateDependabot(
         '.github/dependabot.yml',

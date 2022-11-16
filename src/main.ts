@@ -1,6 +1,7 @@
 import * as core from '@actions/core'
 import Ajv, {ErrorObject} from 'ajv'
 import YAML from 'yaml'
+import fetch from 'node-fetch'
 import {readFileSync} from 'fs'
 
 async function run(): Promise<void> {
@@ -41,8 +42,11 @@ export async function validateDependabot(
   const json = YAML.parse(yaml)
 
   // load schema
-  const schemaText = readFileSync('dependabot-2.0.json', 'utf-8')
-  const schema = JSON.parse(schemaText)
+  const response = await fetch(
+    'https://json.schemastore.org/dependabot-2.0.json'
+  )
+
+  const schema = (await response.json()) as object
 
   // validate
   const validate = ajv.compile(schema)
