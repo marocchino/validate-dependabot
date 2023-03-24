@@ -1,3 +1,8 @@
 version: 2
 updates:
   - package-ecosystem: 'github-actions'
+    commit-message:
+      prefix: 'The prefix and the prefix-development options have a 50 character limit.'
+  - package-ecosystem: 'github-actions'
+    commit-message:
+      prefix-development: 'The prefix and the prefix-development options have a 50 character limit.'

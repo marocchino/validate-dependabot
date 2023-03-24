@@ -41,6 +41,8 @@ describe('validateDependabot', () => {
 | keyword | message | dataPath |
 | ------- | ------- | -------- |
 | required | should have required property 'directory' | .updates[0] |
+| invalid | commit-message.prefix require to be less than 50 characters | .updates[0].commit-message.prefix |
+| invalid | commit-message.prefix-development require to be less than 50 characters | .updates[1].commit-message.prefix-development |
 `,
       errors: [
         {
