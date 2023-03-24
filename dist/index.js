@@ -81,12 +81,16 @@ function validateDependabot(path, successMessage, failureMessage) {
         const schema = (yield response.json());
         // validate
         const validate = ajv.compile(schema);
-        const valid = yield validate(json);
-        if (valid) {
+        const valid1 = yield validate(json);
+        const { valid: valid2, errors } = inhouseValidate(json);
+        if (valid1 && valid2) {
             return { message: successMessage };
         }
         core.debug(`errors: ${JSON.stringify(validate.errors)}`);
-        const lines = (_a = validate.errors) === null || _a === void 0 ? void 0 : _a.map(({ keyword, message, dataPath }) => `| ${keyword} | ${message} | ${dataPath} |`).join('\n');
+        core.debug(`errors: ${JSON.stringify(errors)}`);
+        const lines = [...((_a = validate === null || validate === void 0 ? void 0 : validate.errors) !== null && _a !== void 0 ? _a : []), ...errors]
+            .map(({ keyword, message, dataPath }) => `| ${keyword} | ${message} | ${dataPath} |`)
+            .join('\n');
         const message = `
 ${failureMessage}
 
@@ -98,6 +102,38 @@ ${lines}
     });
 }
 exports.validateDependabot = validateDependabot;
+function inhouseValidate(json) {
+    var _a, _b, _c, _d, _e, _f;
+    const result = {
+        valid: true,
+        errors: []
+    };
+    for (const [i, update] of (_b = (_a = json === null || json === void 0 ? void 0 : json['updates']) === null || _a === void 0 ? void 0 : _a.entries()) !== null && _b !== void 0 ? _b : []) {
+        if (((_d = (_c = update['commit-message']) === null || _c === void 0 ? void 0 : _c['prefix']) === null || _d === void 0 ? void 0 : _d.length) > 50) {
+            const error = {
+                keyword: 'invalid',
+                message: 'commit-message.prefix require to be less than 50 characters',
+                dataPath: `.updates[${i}].commit-message.prefix`,
+                schemaPath: '',
+                params: ''
+            };
+            result.errors.push(error);
+            result.valid = false;
+        }
+        if (((_f = (_e = update['commit-message']) === null || _e === void 0 ? void 0 : _e['prefix-development']) === null || _f === void 0 ? void 0 : _f.length) > 50) {
+            const error = {
+                keyword: 'invalid',
+                message: 'commit-message.prefix-development require to be less than 50 characters',
+                dataPath: `.updates[${i}].commit-message.prefix-development`,
+                schemaPath: '',
+                params: ''
+            };
+            result.errors.push(error);
+            result.valid = false;
+        }
+    }
+    return result;
+}
 run();
 
 
