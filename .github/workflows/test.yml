@@ -1,38 +1,29 @@
 name: 'build-test'
-on: # rebuild any PRs and main branch changes
-  pull_request:
-  push:
-    branches:
-      - main
-      - 'releases/*'
+on: 'pull_request'
 
 jobs:
   build: # make sure build/ci work properly
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: |
           yarn install
       - run: |
           yarn run all
   test: # make sure the action works on a clean machine without building
+    permissions:
+      pull-requests: "write"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./
         id: validate
-      - run: |
-          set -o pipefail
-          mkdir -p ./pr
-          echo ${{ github.event.number }} | tee ./pr/number
-          cat <<EOT >> ./pr/markdown
-          ${{ steps.validate.outputs.markdown }}
-          EOT
-          cat <<EOT >> ./pr/raw
-          ${{ steps.validate.outputs.raw }}
-          EOT
-      - uses: actions/upload-artifact@v3
-        if: ${{ github.event_name == 'pull_request' && (success() || failure()) }}
+      - uses: marocchino/sticky-pull-request-comment@v2
+        if: always()
         with:
-          name: validate
-          path: pr/
+          header: validate-dependabot
+          message: |
+            ${{ steps.validate.outputs.markdown }}
+            ```json
+            ${{ steps.validate.outputs.raw }}
+            ```
