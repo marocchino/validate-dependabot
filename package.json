@@ -29,7 +29,7 @@
     "@actions/core": "^1.6.0",
     "ajv": "^4.11.8",
     "node-fetch": "2.6.7",
-    "yaml": "^2.2.2"
+    "yaml": "^2.3.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
