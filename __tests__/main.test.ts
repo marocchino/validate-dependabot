@@ -40,20 +40,68 @@ describe('validateDependabot', () => {
 
 | keyword | message | dataPath |
 | ------- | ------- | -------- |
+| maxLength | should NOT be longer than 50 characters | .updates[0]['commit-message'].prefix |
 | required | should have required property 'directory' | .updates[0] |
-| invalid | commit-message.prefix require to be less than 50 characters | .updates[0].commit-message.prefix |
-| invalid | commit-message.prefix-development require to be less than 50 characters | .updates[1].commit-message.prefix-development |
+| required | should have required property 'schedule' | .updates[0] |
+| maxLength | should NOT be longer than 50 characters | .updates[1]['commit-message']['prefix-development'] |
+| required | should have required property 'directory' | .updates[1] |
+| required | should have required property 'schedule' | .updates[1] |
 `,
       errors: [
         {
-          dataPath: '.updates[0]',
-          keyword: 'required',
-          message: "should have required property 'directory'",
-          params: {
-            missingProperty: 'directory'
+          "dataPath": ".updates[0]['commit-message'].prefix",
+          "keyword": "maxLength",
+          "message": "should NOT be longer than 50 characters",
+          "params": {
+            "limit": 50
           },
-          schemaPath: '#/required'
-        }
+          "schemaPath": "#/properties/commit-message/properties/prefix/maxLength",
+        },
+        {
+          "dataPath": ".updates[0]",
+          "keyword": "required",
+          "message": "should have required property 'directory'",
+          "params": {
+            "missingProperty": "directory",
+          },
+          "schemaPath": "#/required",
+        },
+        {
+          "dataPath": ".updates[0]",
+          "keyword": "required",
+          "message": "should have required property 'schedule'",
+          "params": {
+            "missingProperty": "schedule",
+          },
+          "schemaPath": "#/required",
+        },
+        {
+          "dataPath": ".updates[1]['commit-message']['prefix-development']",
+          "keyword": "maxLength",
+          "message": "should NOT be longer than 50 characters",
+          "params": {
+            "limit": 50
+          },
+          "schemaPath": "#/properties/commit-message/properties/prefix-development/maxLength",
+        },
+        {
+          "dataPath": ".updates[1]",
+          "keyword": "required",
+          "message": "should have required property 'directory'",
+          "params": {
+            "missingProperty": "directory",
+          },
+          "schemaPath": "#/required",
+        },
+        {
+          "dataPath": ".updates[1]",
+          "keyword": "required",
+          "message": "should have required property 'schedule'",
+          "params": {
+            "missingProperty": "schedule",
+          },
+          "schemaPath": "#/required",
+        },
       ]
     })
   })

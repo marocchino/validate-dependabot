@@ -31,10 +31,10 @@ export async function validateDependabot(
   successMessage: string,
   failureMessage: string
 ): Promise<{
-  errors?: ErrorObject[] | undefined
+  errors?: ErrorObject[] | null | undefined
   message: string
 }> {
-  const ajv = new Ajv({extendRefs: true})
+  const ajv = new Ajv({extendRefs: true, allErrors: true})
   core.debug(`validate against ${path}...`)
 
   // load target file
@@ -50,15 +50,13 @@ export async function validateDependabot(
 
   // validate
   const validate = ajv.compile(schema)
-  const valid1 = await validate(json)
-  const {valid: valid2, errors} = inhouseValidate(json)
+  const valid = await validate(json)
 
-  if (valid1 && valid2) {
+  if (valid) {
     return {message: successMessage}
   }
   core.debug(`errors: ${JSON.stringify(validate.errors)}`)
-  core.debug(`errors: ${JSON.stringify(errors)}`)
-  const lines = [...(validate?.errors ?? []), ...errors]
+  const lines = (validate?.errors ?? [])
     .map(
       ({keyword, message, dataPath}: ErrorObject) =>
         `| ${keyword} | ${message} | ${dataPath} |`
@@ -74,40 +72,4 @@ ${lines}
   return {errors: validate.errors, message}
 }
 
-function inhouseValidate(json: object): {
-  valid: boolean
-  errors: ErrorObject[]
-} {
-  const result: {valid: boolean; errors: ErrorObject[]} = {
-    valid: true,
-    errors: []
-  }
-
-  for (const [i, update] of (json as any)?.['updates']?.entries() ?? []) {
-    if (update['commit-message']?.['prefix']?.length > 50) {
-      const error: ErrorObject = {
-        keyword: 'invalid',
-        message: 'commit-message.prefix require to be less than 50 characters',
-        dataPath: `.updates[${i}].commit-message.prefix`,
-        schemaPath: '',
-        params: ''
-      }
-      result.errors.push(error)
-      result.valid = false
-    }
-    if (update['commit-message']?.['prefix-development']?.length > 50) {
-      const error: ErrorObject = {
-        keyword: 'invalid',
-        message:
-          'commit-message.prefix-development require to be less than 50 characters',
-        dataPath: `.updates[${i}].commit-message.prefix-development`,
-        schemaPath: '',
-        params: ''
-      }
-      result.errors.push(error)
-      result.valid = false
-    }
-  }
-  return result
-}
 run()
