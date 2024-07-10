@@ -41,67 +41,107 @@ describe('validateDependabot', () => {
 | keyword | message | dataPath |
 | ------- | ------- | -------- |
 | maxLength | should NOT be longer than 50 characters | .updates[0]['commit-message'].prefix |
-| required | should have required property 'directory' | .updates[0] |
 | required | should have required property 'schedule' | .updates[0] |
+| required | should have required property 'directories' | .updates[0] |
+| required | should have required property 'directory' | .updates[0] |
+| oneOf | should match exactly one schema in oneOf | .updates[0] |
 | maxLength | should NOT be longer than 50 characters | .updates[1]['commit-message']['prefix-development'] |
-| required | should have required property 'directory' | .updates[1] |
 | required | should have required property 'schedule' | .updates[1] |
+| required | should have required property 'directories' | .updates[1] |
+| required | should have required property 'directory' | .updates[1] |
+| oneOf | should match exactly one schema in oneOf | .updates[1] |
 `,
       errors: [
         {
+          keyword: 'maxLength',
           dataPath: ".updates[0]['commit-message'].prefix",
-          keyword: 'maxLength',
-          message: 'should NOT be longer than 50 characters',
+          schemaPath: '#/properties/commit-message/properties/prefix/maxLength',
           params: {
             limit: 50
           },
-          schemaPath: '#/properties/commit-message/properties/prefix/maxLength'
+          message: 'should NOT be longer than 50 characters'
         },
         {
-          dataPath: '.updates[0]',
           keyword: 'required',
-          message: "should have required property 'directory'",
-          params: {
-            missingProperty: 'directory'
-          },
-          schemaPath: '#/required'
-        },
-        {
           dataPath: '.updates[0]',
-          keyword: 'required',
-          message: "should have required property 'schedule'",
+          schemaPath: '#/allOf/0/required',
           params: {
             missingProperty: 'schedule'
           },
-          schemaPath: '#/required'
+          message: "should have required property 'schedule'"
         },
         {
+          keyword: 'required',
+          dataPath: '.updates[0]',
+          schemaPath: '#/allOf/1/oneOf/0/required',
+          params: {
+            missingProperty: 'directories'
+          },
+          message: "should have required property 'directories'"
+        },
+        {
+          keyword: 'required',
+          dataPath: '.updates[0]',
+          schemaPath: '#/allOf/1/oneOf/1/required',
+          params: {
+            missingProperty: 'directory'
+          },
+          message: "should have required property 'directory'"
+        },
+        {
+          keyword: 'oneOf',
+          dataPath: '.updates[0]',
+          schemaPath: '#/allOf/1/oneOf',
+          params: {
+            passingSchemas: null
+          },
+          message: 'should match exactly one schema in oneOf'
+        },
+        {
+          keyword: 'maxLength',
           dataPath: ".updates[1]['commit-message']['prefix-development']",
-          keyword: 'maxLength',
-          message: 'should NOT be longer than 50 characters',
+          schemaPath:
+            '#/properties/commit-message/properties/prefix-development/maxLength',
           params: {
             limit: 50
           },
-          schemaPath:
-            '#/properties/commit-message/properties/prefix-development/maxLength'
+          message: 'should NOT be longer than 50 characters'
         },
         {
-          dataPath: '.updates[1]',
           keyword: 'required',
-          message: "should have required property 'directory'",
-          params: {
-            missingProperty: 'directory'
-          },
-          schemaPath: '#/required'
-        },
-        {
           dataPath: '.updates[1]',
-          keyword: 'required',
-          message: "should have required property 'schedule'",
+          schemaPath: '#/allOf/0/required',
           params: {
             missingProperty: 'schedule'
           },
-          schemaPath: '#/required'
+          message: "should have required property 'schedule'"
+        },
+        {
+          keyword: 'required',
+          dataPath: '.updates[1]',
+          schemaPath: '#/allOf/1/oneOf/0/required',
+          params: {
+            missingProperty: 'directories'
+          },
+          message: "should have required property 'directories'"
+        },
+        {
+          keyword: 'required',
+          dataPath: '.updates[1]',
+          schemaPath: '#/allOf/1/oneOf/1/required',
+          params: {
+            missingProperty: 'directory'
+          },
+          message: "should have required property 'directory'"
+        },
+        {
+          keyword: 'oneOf',
+          dataPath: '.updates[1]',
+          schemaPath: '#/allOf/1/oneOf',
+          params: {
+            passingSchemas: null
+          },
+          message: 'should match exactly one schema in oneOf'
         }
       ]
     })
