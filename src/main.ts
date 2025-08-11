@@ -1,9 +1,7 @@
 import * as core from '@actions/core'
 import Ajv, {ErrorObject} from 'ajv'
 import YAML from 'yaml'
-import fetch from 'node-fetch'
 import {readFileSync} from 'fs'
-import https from 'https' // <--- add this
 
 async function run(): Promise<void> {
   try {
@@ -42,18 +40,7 @@ export async function validateDependabot(
   const yaml = readFileSync(path, 'utf-8')
   const json = YAML.parse(yaml)
 
-  // load schema
-  const agent =
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0'
-      ? new https.Agent({ rejectUnauthorized: false })
-      : undefined
-
-  const response = await fetch(
-    'https://json.schemastore.org/dependabot-2.0.json',
-    { agent }
-  )
-
-  const schema = (await response.json()) as object
+  const schema = JSON.parse(readFileSync('.github/dependabot-schema.json', 'utf-8'))
 
   // validate
   const validate = ajv.compile(schema)
