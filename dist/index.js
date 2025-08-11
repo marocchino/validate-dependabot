@@ -75,7 +75,8 @@ function validateDependabot(path, successMessage, failureMessage) {
         // load target file
         const yaml = (0, fs_1.readFileSync)(path, 'utf-8');
         const json = yaml_1.default.parse(yaml);
-        const schema = JSON.parse((0, fs_1.readFileSync)('.github/dependabot-schema.json', 'utf-8'));
+        // running from the dist dir, then we need to load if from there
+        const schema = JSON.parse((0, fs_1.readFileSync)('dependabot-schema.json', 'utf-8'));
         // validate
         const validate = ajv.compile(schema);
         const valid = yield validate(json);
