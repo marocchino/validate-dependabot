@@ -76,7 +76,7 @@ function validateDependabot(path, successMessage, failureMessage) {
         const yaml = (0, fs_1.readFileSync)(path, 'utf-8');
         const json = yaml_1.default.parse(yaml);
         // running from the dist dir, then we need to load if from there
-        const schema = JSON.parse((0, fs_1.readFileSync)('dependabot-schema.json', 'utf-8'));
+        const schema = __nccwpck_require__(7979);
         // validate
         const validate = ajv.compile(schema);
         const valid = yield validate(json);
@@ -10062,6 +10062,14 @@ function version(uuid) {
 
 var _default = version;
 exports["default"] = _default;
+
+/***/ }),
+
+/***/ 7979:
+/***/ ((module) => {
+
+module.exports = eval("require")("./schema/dependabot-2.0.json");
+
 
 /***/ }),
 
