@@ -40,7 +40,8 @@ export async function validateDependabot(
   const yaml = readFileSync(path, 'utf-8')
   const json = YAML.parse(yaml)
 
-  const schema = JSON.parse(readFileSync('.github/dependabot-schema.json', 'utf-8'))
+  // running from the dist dir, then we need to load if from there
+  const schema = JSON.parse(readFileSync('dependabot-schema.json', 'utf-8'))
 
   // validate
   const validate = ajv.compile(schema)
