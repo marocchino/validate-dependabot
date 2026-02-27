@@ -27,6 +27,17 @@ describe('validateDependabot', () => {
       message: '✅dependabot config looks good 👍'
     })
   })
+  test('with cooldown config', async () => {
+    expect(
+      await validateDependabot(
+        '__tests__/dependabot-cooldown.yml',
+        '✅dependabot config looks good 👍',
+        '🚫 dependabot errors'
+      )
+    ).toEqual({
+      message: '✅dependabot config looks good 👍'
+    })
+  })
   test('with errors', async () => {
     expect(
       await validateDependabot(
