@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: 'bundler'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    cooldown:
+      default-days: 2
+      semver-major-days: 6
+      semver-minor-days: 3
+      semver-patch-days: 1
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    cooldown:
+      default-days: 2
+      semver-major-days: 6
+      include:
+        - '@types/*'
+      exclude:
+        - 'react'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    cooldown:
+      default-days: 2

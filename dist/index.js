@@ -1,7 +1,7 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 3109:
+/***/ 5915:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -42,12 +42,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.validateDependabot = void 0;
-const core = __importStar(__nccwpck_require__(2186));
-const ajv_1 = __importDefault(__nccwpck_require__(4941));
-const yaml_1 = __importDefault(__nccwpck_require__(4083));
-const fs_1 = __nccwpck_require__(7147);
-const dependabot_2_0_json_1 = __importDefault(__nccwpck_require__(4634));
+exports.validateDependabot = validateDependabot;
+const core = __importStar(__nccwpck_require__(7484));
+const ajv_1 = __importDefault(__nccwpck_require__(1160));
+const yaml_1 = __importDefault(__nccwpck_require__(8815));
+const fs_1 = __nccwpck_require__(9896);
+const dependabot_2_0_json_1 = __importDefault(__nccwpck_require__(6489));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -96,13 +96,12 @@ ${lines}
         return { errors: validate.errors, message };
     });
 }
-exports.validateDependabot = validateDependabot;
 run();
 
 
 /***/ }),
 
-/***/ 7351:
+/***/ 4914:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -128,8 +127,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issue = exports.issueCommand = void 0;
-const os = __importStar(__nccwpck_require__(2037));
-const utils_1 = __nccwpck_require__(5278);
+const os = __importStar(__nccwpck_require__(857));
+const utils_1 = __nccwpck_require__(302);
 /**
  * Commands
  *
@@ -201,7 +200,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 2186:
+/***/ 7484:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -236,12 +235,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
-const command_1 = __nccwpck_require__(7351);
-const file_command_1 = __nccwpck_require__(717);
-const utils_1 = __nccwpck_require__(5278);
-const os = __importStar(__nccwpck_require__(2037));
-const path = __importStar(__nccwpck_require__(1017));
-const oidc_utils_1 = __nccwpck_require__(8041);
+const command_1 = __nccwpck_require__(4914);
+const file_command_1 = __nccwpck_require__(4753);
+const utils_1 = __nccwpck_require__(302);
+const os = __importStar(__nccwpck_require__(857));
+const path = __importStar(__nccwpck_require__(6928));
+const oidc_utils_1 = __nccwpck_require__(5306);
 /**
  * The code to exit an action
  */
@@ -526,17 +525,17 @@ exports.getIDToken = getIDToken;
 /**
  * Summary exports
  */
-var summary_1 = __nccwpck_require__(1327);
+var summary_1 = __nccwpck_require__(1847);
 Object.defineProperty(exports, "summary", ({ enumerable: true, get: function () { return summary_1.summary; } }));
 /**
  * @deprecated use core.summary
  */
-var summary_2 = __nccwpck_require__(1327);
+var summary_2 = __nccwpck_require__(1847);
 Object.defineProperty(exports, "markdownSummary", ({ enumerable: true, get: function () { return summary_2.markdownSummary; } }));
 /**
  * Path exports
  */
-var path_utils_1 = __nccwpck_require__(2981);
+var path_utils_1 = __nccwpck_require__(1976);
 Object.defineProperty(exports, "toPosixPath", ({ enumerable: true, get: function () { return path_utils_1.toPosixPath; } }));
 Object.defineProperty(exports, "toWin32Path", ({ enumerable: true, get: function () { return path_utils_1.toWin32Path; } }));
 Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: function () { return path_utils_1.toPlatformPath; } }));
@@ -544,7 +543,7 @@ Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: funct
 
 /***/ }),
 
-/***/ 717:
+/***/ 4753:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -573,10 +572,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const fs = __importStar(__nccwpck_require__(7147));
-const os = __importStar(__nccwpck_require__(2037));
-const uuid_1 = __nccwpck_require__(5840);
-const utils_1 = __nccwpck_require__(5278);
+const fs = __importStar(__nccwpck_require__(9896));
+const os = __importStar(__nccwpck_require__(857));
+const uuid_1 = __nccwpck_require__(2048);
+const utils_1 = __nccwpck_require__(302);
 function issueFileCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -609,7 +608,7 @@ exports.prepareKeyValueMessage = prepareKeyValueMessage;
 
 /***/ }),
 
-/***/ 8041:
+/***/ 5306:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -625,9 +624,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OidcClient = void 0;
-const http_client_1 = __nccwpck_require__(6255);
-const auth_1 = __nccwpck_require__(5526);
-const core_1 = __nccwpck_require__(2186);
+const http_client_1 = __nccwpck_require__(4844);
+const auth_1 = __nccwpck_require__(4552);
+const core_1 = __nccwpck_require__(7484);
 class OidcClient {
     static createHttpClient(allowRetry = true, maxRetry = 10) {
         const requestOptions = {
@@ -693,7 +692,7 @@ exports.OidcClient = OidcClient;
 
 /***/ }),
 
-/***/ 2981:
+/***/ 1976:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -719,7 +718,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.toPlatformPath = exports.toWin32Path = exports.toPosixPath = void 0;
-const path = __importStar(__nccwpck_require__(1017));
+const path = __importStar(__nccwpck_require__(6928));
 /**
  * toPosixPath converts the given path to the posix form. On Windows, \\ will be
  * replaced with /.
@@ -758,7 +757,7 @@ exports.toPlatformPath = toPlatformPath;
 
 /***/ }),
 
-/***/ 1327:
+/***/ 1847:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -774,8 +773,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.summary = exports.markdownSummary = exports.SUMMARY_DOCS_URL = exports.SUMMARY_ENV_VAR = void 0;
-const os_1 = __nccwpck_require__(2037);
-const fs_1 = __nccwpck_require__(7147);
+const os_1 = __nccwpck_require__(857);
+const fs_1 = __nccwpck_require__(9896);
 const { access, appendFile, writeFile } = fs_1.promises;
 exports.SUMMARY_ENV_VAR = 'GITHUB_STEP_SUMMARY';
 exports.SUMMARY_DOCS_URL = 'https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary';
@@ -1048,7 +1047,7 @@ exports.summary = _summary;
 
 /***/ }),
 
-/***/ 5278:
+/***/ 302:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1095,7 +1094,7 @@ exports.toCommandProperties = toCommandProperties;
 
 /***/ }),
 
-/***/ 5526:
+/***/ 4552:
 /***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
@@ -1183,7 +1182,7 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 
 /***/ }),
 
-/***/ 6255:
+/***/ 4844:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1219,10 +1218,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.HttpClient = exports.isHttps = exports.HttpClientResponse = exports.HttpClientError = exports.getProxyUrl = exports.MediaTypes = exports.Headers = exports.HttpCodes = void 0;
-const http = __importStar(__nccwpck_require__(3685));
-const https = __importStar(__nccwpck_require__(5687));
-const pm = __importStar(__nccwpck_require__(9835));
-const tunnel = __importStar(__nccwpck_require__(4294));
+const http = __importStar(__nccwpck_require__(8611));
+const https = __importStar(__nccwpck_require__(5692));
+const pm = __importStar(__nccwpck_require__(4988));
+const tunnel = __importStar(__nccwpck_require__(770));
 var HttpCodes;
 (function (HttpCodes) {
     HttpCodes[HttpCodes["OK"] = 200] = "OK";
@@ -1795,7 +1794,7 @@ const lowercaseKeys = (obj) => Object.keys(obj).reduce((c, k) => ((c[k.toLowerCa
 
 /***/ }),
 
-/***/ 9835:
+/***/ 4988:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1878,21 +1877,21 @@ function isLoopbackAddress(host) {
 
 /***/ }),
 
-/***/ 4941:
+/***/ 1160:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var compileSchema = __nccwpck_require__(875)
-  , resolve = __nccwpck_require__(3896)
-  , Cache = __nccwpck_require__(3679)
-  , SchemaObject = __nccwpck_require__(7605)
-  , stableStringify = __nccwpck_require__(969)
-  , formats = __nccwpck_require__(6627)
-  , rules = __nccwpck_require__(8561)
-  , $dataMetaSchema = __nccwpck_require__(1412)
-  , util = __nccwpck_require__(6578);
+var compileSchema = __nccwpck_require__(73)
+  , resolve = __nccwpck_require__(3853)
+  , Cache = __nccwpck_require__(5809)
+  , SchemaObject = __nccwpck_require__(5760)
+  , stableStringify = __nccwpck_require__(2049)
+  , formats = __nccwpck_require__(897)
+  , rules = __nccwpck_require__(4910)
+  , $dataMetaSchema = __nccwpck_require__(6267)
+  , util = __nccwpck_require__(161);
 
 module.exports = Ajv;
 
@@ -1909,14 +1908,14 @@ Ajv.prototype.errorsText = errorsText;
 Ajv.prototype._addSchema = _addSchema;
 Ajv.prototype._compile = _compile;
 
-Ajv.prototype.compileAsync = __nccwpck_require__(890);
-var customKeyword = __nccwpck_require__(3297);
+Ajv.prototype.compileAsync = __nccwpck_require__(9577);
+var customKeyword = __nccwpck_require__(7852);
 Ajv.prototype.addKeyword = customKeyword.add;
 Ajv.prototype.getKeyword = customKeyword.get;
 Ajv.prototype.removeKeyword = customKeyword.remove;
 Ajv.prototype.validateKeyword = customKeyword.validate;
 
-var errorClasses = __nccwpck_require__(5726);
+var errorClasses = __nccwpck_require__(1288);
 Ajv.ValidationError = errorClasses.Validation;
 Ajv.MissingRefError = errorClasses.MissingRef;
 Ajv.$dataMetaSchema = $dataMetaSchema;
@@ -2325,11 +2324,11 @@ function addFormat(name, format) {
 function addDefaultMetaSchema(self) {
   var $dataSchema;
   if (self._opts.$data) {
-    $dataSchema = __nccwpck_require__(894);
+    $dataSchema = __nccwpck_require__(3420);
     self.addMetaSchema($dataSchema, $dataSchema.$id, true);
   }
   if (self._opts.meta === false) return;
-  var metaSchema = __nccwpck_require__(6680);
+  var metaSchema = __nccwpck_require__(8198);
   if (self._opts.$data) metaSchema = $dataMetaSchema(metaSchema, META_SUPPORT_DATA);
   self.addMetaSchema(metaSchema, META_SCHEMA_ID, true);
   self._refs['http://json-schema.org/schema'] = META_SCHEMA_ID;
@@ -2392,7 +2391,7 @@ function noop() {}
 
 /***/ }),
 
-/***/ 3679:
+/***/ 5809:
 /***/ ((module) => {
 
 "use strict";
@@ -2426,13 +2425,13 @@ Cache.prototype.clear = function Cache_clear() {
 
 /***/ }),
 
-/***/ 890:
+/***/ 9577:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var MissingRefError = (__nccwpck_require__(5726).MissingRef);
+var MissingRefError = (__nccwpck_require__(1288).MissingRef);
 
 module.exports = compileAsync;
 
@@ -2524,13 +2523,13 @@ function compileAsync(schema, meta, callback) {
 
 /***/ }),
 
-/***/ 5726:
+/***/ 1288:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var resolve = __nccwpck_require__(3896);
+var resolve = __nccwpck_require__(3853);
 
 module.exports = {
   Validation: errorSubclass(ValidationError),
@@ -2566,13 +2565,13 @@ function errorSubclass(Subclass) {
 
 /***/ }),
 
-/***/ 6627:
+/***/ 897:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var util = __nccwpck_require__(6578);
+var util = __nccwpck_require__(161);
 
 var DATE = /^(\d\d\d\d)-(\d\d)-(\d\d)$/;
 var DAYS = [0,31,28,31,30,31,30,31,31,30,31,30,31];
@@ -2716,25 +2715,25 @@ function regex(str) {
 
 /***/ }),
 
-/***/ 875:
+/***/ 73:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var resolve = __nccwpck_require__(3896)
-  , util = __nccwpck_require__(6578)
-  , errorClasses = __nccwpck_require__(5726)
-  , stableStringify = __nccwpck_require__(969);
+var resolve = __nccwpck_require__(3853)
+  , util = __nccwpck_require__(161)
+  , errorClasses = __nccwpck_require__(1288)
+  , stableStringify = __nccwpck_require__(2049);
 
-var validateGenerator = __nccwpck_require__(9585);
+var validateGenerator = __nccwpck_require__(5752);
 
 /**
  * Functions below are used inside compiled validations function
  */
 
 var ucs2length = util.ucs2length;
-var equal = __nccwpck_require__(8206);
+var equal = __nccwpck_require__(3430);
 
 // this error is thrown by async schemas to return validation errors via exception
 var ValidationError = errorClasses.Validation;
@@ -3111,17 +3110,17 @@ function vars(arr, statement) {
 
 /***/ }),
 
-/***/ 3896:
+/***/ 3853:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var URI = __nccwpck_require__(20)
-  , equal = __nccwpck_require__(8206)
-  , util = __nccwpck_require__(6578)
-  , SchemaObject = __nccwpck_require__(7605)
-  , traverse = __nccwpck_require__(2533);
+var URI = __nccwpck_require__(2084)
+  , equal = __nccwpck_require__(3430)
+  , util = __nccwpck_require__(161)
+  , SchemaObject = __nccwpck_require__(5760)
+  , traverse = __nccwpck_require__(1167);
 
 module.exports = resolve;
 
@@ -3389,14 +3388,14 @@ function resolveIds(schema) {
 
 /***/ }),
 
-/***/ 8561:
+/***/ 4910:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var ruleModules = __nccwpck_require__(5810)
-  , toHash = (__nccwpck_require__(6578).toHash);
+var ruleModules = __nccwpck_require__(2672)
+  , toHash = (__nccwpck_require__(161).toHash);
 
 module.exports = function rules() {
   var RULES = [
@@ -3463,13 +3462,13 @@ module.exports = function rules() {
 
 /***/ }),
 
-/***/ 7605:
+/***/ 5760:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var util = __nccwpck_require__(6578);
+var util = __nccwpck_require__(161);
 
 module.exports = SchemaObject;
 
@@ -3480,7 +3479,7 @@ function SchemaObject(obj) {
 
 /***/ }),
 
-/***/ 4580:
+/***/ 5096:
 /***/ ((module) => {
 
 "use strict";
@@ -3508,7 +3507,7 @@ module.exports = function ucs2length(str) {
 
 /***/ }),
 
-/***/ 6578:
+/***/ 161:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -3523,8 +3522,8 @@ module.exports = {
   toHash: toHash,
   getProperty: getProperty,
   escapeQuotes: escapeQuotes,
-  equal: __nccwpck_require__(8206),
-  ucs2length: __nccwpck_require__(4580),
+  equal: __nccwpck_require__(3430),
+  ucs2length: __nccwpck_require__(5096),
   varOccurences: varOccurences,
   varReplace: varReplace,
   schemaHasRules: schemaHasRules,
@@ -3755,7 +3754,7 @@ function unescapeJsonPointer(str) {
 
 /***/ }),
 
-/***/ 1412:
+/***/ 6267:
 /***/ ((module) => {
 
 "use strict";
@@ -3812,13 +3811,13 @@ module.exports = function (metaSchema, keywordsJsonPointers) {
 
 /***/ }),
 
-/***/ 458:
+/***/ 394:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var metaSchema = __nccwpck_require__(6680);
+var metaSchema = __nccwpck_require__(8198);
 
 module.exports = {
   $id: 'https://github.com/ajv-validator/ajv/blob/master/lib/definition_schema.js',
@@ -3857,7 +3856,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 7404:
+/***/ 3006:
 /***/ ((module) => {
 
 "use strict";
@@ -4028,7 +4027,7 @@ module.exports = function generate__limit(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 4683:
+/***/ 3780:
 /***/ ((module) => {
 
 "use strict";
@@ -4116,7 +4115,7 @@ module.exports = function generate__limitItems(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 2114:
+/***/ 2550:
 /***/ ((module) => {
 
 "use strict";
@@ -4209,7 +4208,7 @@ module.exports = function generate__limitLength(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 1142:
+/***/ 6667:
 /***/ ((module) => {
 
 "use strict";
@@ -4297,7 +4296,7 @@ module.exports = function generate__limitProperties(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 9443:
+/***/ 2926:
 /***/ ((module) => {
 
 "use strict";
@@ -4347,7 +4346,7 @@ module.exports = function generate_allOf(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 3093:
+/***/ 1583:
 /***/ ((module) => {
 
 "use strict";
@@ -4428,7 +4427,7 @@ module.exports = function generate_anyOf(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 134:
+/***/ 6625:
 /***/ ((module) => {
 
 "use strict";
@@ -4450,7 +4449,7 @@ module.exports = function generate_comment(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 1661:
+/***/ 7771:
 /***/ ((module) => {
 
 "use strict";
@@ -4514,7 +4513,7 @@ module.exports = function generate_const(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 5964:
+/***/ 55:
 /***/ ((module) => {
 
 "use strict";
@@ -4603,7 +4602,7 @@ module.exports = function generate_contains(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 5912:
+/***/ 7033:
 /***/ ((module) => {
 
 "use strict";
@@ -4839,7 +4838,7 @@ module.exports = function generate_custom(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 2591:
+/***/ 6207:
 /***/ ((module) => {
 
 "use strict";
@@ -5015,7 +5014,7 @@ module.exports = function generate_dependencies(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 163:
+/***/ 5711:
 /***/ ((module) => {
 
 "use strict";
@@ -5089,7 +5088,7 @@ module.exports = function generate_enum(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 3847:
+/***/ 2373:
 /***/ ((module) => {
 
 "use strict";
@@ -5247,7 +5246,7 @@ module.exports = function generate_format(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 862:
+/***/ 9433:
 /***/ ((module) => {
 
 "use strict";
@@ -5358,7 +5357,7 @@ module.exports = function generate_if(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 5810:
+/***/ 2672:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
@@ -5366,40 +5365,40 @@ module.exports = function generate_if(it, $keyword, $ruleType) {
 
 //all requires must be explicit because browserify won't work with dynamic requires
 module.exports = {
-  '$ref': __nccwpck_require__(2393),
-  allOf: __nccwpck_require__(9443),
-  anyOf: __nccwpck_require__(3093),
-  '$comment': __nccwpck_require__(134),
-  const: __nccwpck_require__(1661),
-  contains: __nccwpck_require__(5964),
-  dependencies: __nccwpck_require__(2591),
-  'enum': __nccwpck_require__(163),
-  format: __nccwpck_require__(3847),
-  'if': __nccwpck_require__(862),
-  items: __nccwpck_require__(4408),
-  maximum: __nccwpck_require__(7404),
-  minimum: __nccwpck_require__(7404),
-  maxItems: __nccwpck_require__(4683),
-  minItems: __nccwpck_require__(4683),
-  maxLength: __nccwpck_require__(2114),
-  minLength: __nccwpck_require__(2114),
-  maxProperties: __nccwpck_require__(1142),
-  minProperties: __nccwpck_require__(1142),
-  multipleOf: __nccwpck_require__(9772),
-  not: __nccwpck_require__(750),
-  oneOf: __nccwpck_require__(6106),
-  pattern: __nccwpck_require__(3912),
-  properties: __nccwpck_require__(2924),
-  propertyNames: __nccwpck_require__(9195),
-  required: __nccwpck_require__(8420),
-  uniqueItems: __nccwpck_require__(4995),
-  validate: __nccwpck_require__(9585)
+  '$ref': __nccwpck_require__(7741),
+  allOf: __nccwpck_require__(2926),
+  anyOf: __nccwpck_require__(1583),
+  '$comment': __nccwpck_require__(6625),
+  const: __nccwpck_require__(7771),
+  contains: __nccwpck_require__(55),
+  dependencies: __nccwpck_require__(6207),
+  'enum': __nccwpck_require__(5711),
+  format: __nccwpck_require__(2373),
+  'if': __nccwpck_require__(9433),
+  items: __nccwpck_require__(9804),
+  maximum: __nccwpck_require__(3006),
+  minimum: __nccwpck_require__(3006),
+  maxItems: __nccwpck_require__(3780),
+  minItems: __nccwpck_require__(3780),
+  maxLength: __nccwpck_require__(2550),
+  minLength: __nccwpck_require__(2550),
+  maxProperties: __nccwpck_require__(6667),
+  minProperties: __nccwpck_require__(6667),
+  multipleOf: __nccwpck_require__(9019),
+  not: __nccwpck_require__(589),
+  oneOf: __nccwpck_require__(5365),
+  pattern: __nccwpck_require__(3690),
+  properties: __nccwpck_require__(2403),
+  propertyNames: __nccwpck_require__(4335),
+  required: __nccwpck_require__(7679),
+  uniqueItems: __nccwpck_require__(2021),
+  validate: __nccwpck_require__(5752)
 };
 
 
 /***/ }),
 
-/***/ 4408:
+/***/ 9804:
 /***/ ((module) => {
 
 "use strict";
@@ -5547,7 +5546,7 @@ module.exports = function generate_items(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 9772:
+/***/ 9019:
 /***/ ((module) => {
 
 "use strict";
@@ -5635,7 +5634,7 @@ module.exports = function generate_multipleOf(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 750:
+/***/ 589:
 /***/ ((module) => {
 
 "use strict";
@@ -5727,7 +5726,7 @@ module.exports = function generate_not(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 6106:
+/***/ 5365:
 /***/ ((module) => {
 
 "use strict";
@@ -5808,7 +5807,7 @@ module.exports = function generate_oneOf(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 3912:
+/***/ 3690:
 /***/ ((module) => {
 
 "use strict";
@@ -5891,7 +5890,7 @@ module.exports = function generate_pattern(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 2924:
+/***/ 2403:
 /***/ ((module) => {
 
 "use strict";
@@ -6234,7 +6233,7 @@ module.exports = function generate_properties(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 9195:
+/***/ 4335:
 /***/ ((module) => {
 
 "use strict";
@@ -6323,7 +6322,7 @@ module.exports = function generate_propertyNames(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 2393:
+/***/ 7741:
 /***/ ((module) => {
 
 "use strict";
@@ -6455,7 +6454,7 @@ module.exports = function generate_ref(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 8420:
+/***/ 7679:
 /***/ ((module) => {
 
 "use strict";
@@ -6733,7 +6732,7 @@ module.exports = function generate_required(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 4995:
+/***/ 2021:
 /***/ ((module) => {
 
 "use strict";
@@ -6827,7 +6826,7 @@ module.exports = function generate_uniqueItems(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 9585:
+/***/ 5752:
 /***/ ((module) => {
 
 "use strict";
@@ -7317,15 +7316,15 @@ module.exports = function generate_validate(it, $keyword, $ruleType) {
 
 /***/ }),
 
-/***/ 3297:
+/***/ 7852:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
 var IDENTIFIER = /^[a-z_$][a-z0-9_$-]*$/i;
-var customRuleCode = __nccwpck_require__(5912);
-var definitionSchema = __nccwpck_require__(458);
+var customRuleCode = __nccwpck_require__(7033);
+var definitionSchema = __nccwpck_require__(394);
 
 module.exports = {
   add: addKeyword,
@@ -7471,7 +7470,7 @@ function validateKeyword(definition, throwError) {
 
 /***/ }),
 
-/***/ 8206:
+/***/ 3430:
 /***/ ((module) => {
 
 "use strict";
@@ -7525,7 +7524,7 @@ module.exports = function equal(a, b) {
 
 /***/ }),
 
-/***/ 969:
+/***/ 2049:
 /***/ ((module) => {
 
 "use strict";
@@ -7592,7 +7591,7 @@ module.exports = function (data, opts) {
 
 /***/ }),
 
-/***/ 2533:
+/***/ 1167:
 /***/ ((module) => {
 
 "use strict";
@@ -7689,27 +7688,27 @@ function escapeJsonPtr(str) {
 
 /***/ }),
 
-/***/ 4294:
+/***/ 770:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-module.exports = __nccwpck_require__(4219);
+module.exports = __nccwpck_require__(218);
 
 
 /***/ }),
 
-/***/ 4219:
+/***/ 218:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var net = __nccwpck_require__(1808);
-var tls = __nccwpck_require__(4404);
-var http = __nccwpck_require__(3685);
-var https = __nccwpck_require__(5687);
-var events = __nccwpck_require__(2361);
-var assert = __nccwpck_require__(9491);
-var util = __nccwpck_require__(3837);
+var net = __nccwpck_require__(9278);
+var tls = __nccwpck_require__(4756);
+var http = __nccwpck_require__(8611);
+var https = __nccwpck_require__(5692);
+var events = __nccwpck_require__(4434);
+var assert = __nccwpck_require__(2613);
+var util = __nccwpck_require__(9023);
 
 
 exports.httpOverHttp = httpOverHttp;
@@ -7969,7 +7968,7 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 20:
+/***/ 2084:
 /***/ (function(__unused_webpack_module, exports) {
 
 /** @license URI.js v4.4.1 (c) 2011 Gary Court. License: http://github.com/garycourt/uri-js */
@@ -9418,7 +9417,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 /***/ }),
 
-/***/ 5840:
+/***/ 2048:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9482,29 +9481,29 @@ Object.defineProperty(exports, "parse", ({
   }
 }));
 
-var _v = _interopRequireDefault(__nccwpck_require__(8628));
+var _v = _interopRequireDefault(__nccwpck_require__(6415));
 
-var _v2 = _interopRequireDefault(__nccwpck_require__(6409));
+var _v2 = _interopRequireDefault(__nccwpck_require__(1697));
 
-var _v3 = _interopRequireDefault(__nccwpck_require__(5122));
+var _v3 = _interopRequireDefault(__nccwpck_require__(4676));
 
-var _v4 = _interopRequireDefault(__nccwpck_require__(9120));
+var _v4 = _interopRequireDefault(__nccwpck_require__(9771));
 
-var _nil = _interopRequireDefault(__nccwpck_require__(5332));
+var _nil = _interopRequireDefault(__nccwpck_require__(7723));
 
-var _version = _interopRequireDefault(__nccwpck_require__(1595));
+var _version = _interopRequireDefault(__nccwpck_require__(5868));
 
-var _validate = _interopRequireDefault(__nccwpck_require__(6900));
+var _validate = _interopRequireDefault(__nccwpck_require__(6200));
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(8950));
+var _stringify = _interopRequireDefault(__nccwpck_require__(7597));
 
-var _parse = _interopRequireDefault(__nccwpck_require__(2746));
+var _parse = _interopRequireDefault(__nccwpck_require__(7267));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 
-/***/ 4569:
+/***/ 216:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9515,7 +9514,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+var _crypto = _interopRequireDefault(__nccwpck_require__(6982));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9534,7 +9533,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5332:
+/***/ 7723:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -9549,7 +9548,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2746:
+/***/ 7267:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9560,7 +9559,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _validate = _interopRequireDefault(__nccwpck_require__(6900));
+var _validate = _interopRequireDefault(__nccwpck_require__(6200));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9601,7 +9600,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 814:
+/***/ 7879:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -9616,7 +9615,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 807:
+/***/ 2973:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9627,7 +9626,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = rng;
 
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+var _crypto = _interopRequireDefault(__nccwpck_require__(6982));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9647,7 +9646,7 @@ function rng() {
 
 /***/ }),
 
-/***/ 5274:
+/***/ 507:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9658,7 +9657,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _crypto = _interopRequireDefault(__nccwpck_require__(6113));
+var _crypto = _interopRequireDefault(__nccwpck_require__(6982));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9677,7 +9676,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8950:
+/***/ 7597:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9688,7 +9687,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _validate = _interopRequireDefault(__nccwpck_require__(6900));
+var _validate = _interopRequireDefault(__nccwpck_require__(6200));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9723,7 +9722,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8628:
+/***/ 6415:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9734,9 +9733,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _rng = _interopRequireDefault(__nccwpck_require__(807));
+var _rng = _interopRequireDefault(__nccwpck_require__(2973));
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(8950));
+var _stringify = _interopRequireDefault(__nccwpck_require__(7597));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9837,7 +9836,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6409:
+/***/ 1697:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9848,9 +9847,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _v = _interopRequireDefault(__nccwpck_require__(5998));
+var _v = _interopRequireDefault(__nccwpck_require__(2930));
 
-var _md = _interopRequireDefault(__nccwpck_require__(4569));
+var _md = _interopRequireDefault(__nccwpck_require__(216));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9860,7 +9859,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5998:
+/***/ 2930:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9872,9 +9871,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = _default;
 exports.URL = exports.DNS = void 0;
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(8950));
+var _stringify = _interopRequireDefault(__nccwpck_require__(7597));
 
-var _parse = _interopRequireDefault(__nccwpck_require__(2746));
+var _parse = _interopRequireDefault(__nccwpck_require__(7267));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9945,7 +9944,7 @@ function _default(name, version, hashfunc) {
 
 /***/ }),
 
-/***/ 5122:
+/***/ 4676:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -9956,9 +9955,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _rng = _interopRequireDefault(__nccwpck_require__(807));
+var _rng = _interopRequireDefault(__nccwpck_require__(2973));
 
-var _stringify = _interopRequireDefault(__nccwpck_require__(8950));
+var _stringify = _interopRequireDefault(__nccwpck_require__(7597));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9989,7 +9988,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 9120:
+/***/ 9771:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -10000,9 +9999,9 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _v = _interopRequireDefault(__nccwpck_require__(5998));
+var _v = _interopRequireDefault(__nccwpck_require__(2930));
 
-var _sha = _interopRequireDefault(__nccwpck_require__(5274));
+var _sha = _interopRequireDefault(__nccwpck_require__(507));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10012,7 +10011,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6900:
+/***/ 6200:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -10023,7 +10022,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _regex = _interopRequireDefault(__nccwpck_require__(814));
+var _regex = _interopRequireDefault(__nccwpck_require__(7879));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10036,7 +10035,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1595:
+/***/ 5868:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -10047,7 +10046,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 
-var _validate = _interopRequireDefault(__nccwpck_require__(6900));
+var _validate = _interopRequireDefault(__nccwpck_require__(6200));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10064,7 +10063,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 9491:
+/***/ 2613:
 /***/ ((module) => {
 
 "use strict";
@@ -10072,7 +10071,7 @@ module.exports = require("assert");
 
 /***/ }),
 
-/***/ 6113:
+/***/ 6982:
 /***/ ((module) => {
 
 "use strict";
@@ -10080,7 +10079,7 @@ module.exports = require("crypto");
 
 /***/ }),
 
-/***/ 2361:
+/***/ 4434:
 /***/ ((module) => {
 
 "use strict";
@@ -10088,7 +10087,7 @@ module.exports = require("events");
 
 /***/ }),
 
-/***/ 7147:
+/***/ 9896:
 /***/ ((module) => {
 
 "use strict";
@@ -10096,7 +10095,7 @@ module.exports = require("fs");
 
 /***/ }),
 
-/***/ 3685:
+/***/ 8611:
 /***/ ((module) => {
 
 "use strict";
@@ -10104,7 +10103,7 @@ module.exports = require("http");
 
 /***/ }),
 
-/***/ 5687:
+/***/ 5692:
 /***/ ((module) => {
 
 "use strict";
@@ -10112,7 +10111,7 @@ module.exports = require("https");
 
 /***/ }),
 
-/***/ 1808:
+/***/ 9278:
 /***/ ((module) => {
 
 "use strict";
@@ -10120,7 +10119,7 @@ module.exports = require("net");
 
 /***/ }),
 
-/***/ 2037:
+/***/ 857:
 /***/ ((module) => {
 
 "use strict";
@@ -10128,7 +10127,7 @@ module.exports = require("os");
 
 /***/ }),
 
-/***/ 1017:
+/***/ 6928:
 /***/ ((module) => {
 
 "use strict";
@@ -10136,7 +10135,7 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 4404:
+/***/ 4756:
 /***/ ((module) => {
 
 "use strict";
@@ -10144,7 +10143,7 @@ module.exports = require("tls");
 
 /***/ }),
 
-/***/ 3837:
+/***/ 9023:
 /***/ ((module) => {
 
 "use strict";
@@ -10152,19 +10151,19 @@ module.exports = require("util");
 
 /***/ }),
 
-/***/ 8109:
+/***/ 7349:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var Scalar = __nccwpck_require__(9338);
-var YAMLMap = __nccwpck_require__(6011);
-var YAMLSeq = __nccwpck_require__(5161);
-var resolveBlockMap = __nccwpck_require__(2986);
-var resolveBlockSeq = __nccwpck_require__(2289);
-var resolveFlowCollection = __nccwpck_require__(45);
+var identity = __nccwpck_require__(1127);
+var Scalar = __nccwpck_require__(3301);
+var YAMLMap = __nccwpck_require__(4454);
+var YAMLSeq = __nccwpck_require__(2223);
+var resolveBlockMap = __nccwpck_require__(7103);
+var resolveBlockSeq = __nccwpck_require__(334);
+var resolveFlowCollection = __nccwpck_require__(3142);
 
 function resolveCollection(CN, ctx, token, onError, tagName, tag) {
     const coll = token.type === 'block-map'
@@ -10238,16 +10237,16 @@ exports.composeCollection = composeCollection;
 
 /***/ }),
 
-/***/ 5050:
+/***/ 3683:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Document = __nccwpck_require__(42);
-var composeNode = __nccwpck_require__(8676);
-var resolveEnd = __nccwpck_require__(1250);
-var resolveProps = __nccwpck_require__(6985);
+var Document = __nccwpck_require__(3021);
+var composeNode = __nccwpck_require__(5937);
+var resolveEnd = __nccwpck_require__(7788);
+var resolveProps = __nccwpck_require__(4631);
 
 function composeDoc(options, directives, { offset, start, value, end }, onError) {
     const opts = Object.assign({ _directives: directives }, options);
@@ -10290,17 +10289,17 @@ exports.composeDoc = composeDoc;
 
 /***/ }),
 
-/***/ 8676:
+/***/ 5937:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Alias = __nccwpck_require__(5639);
-var composeCollection = __nccwpck_require__(8109);
-var composeScalar = __nccwpck_require__(4766);
-var resolveEnd = __nccwpck_require__(1250);
-var utilEmptyScalarPosition = __nccwpck_require__(8781);
+var Alias = __nccwpck_require__(4065);
+var composeCollection = __nccwpck_require__(7349);
+var composeScalar = __nccwpck_require__(5413);
+var resolveEnd = __nccwpck_require__(7788);
+var utilEmptyScalarPosition = __nccwpck_require__(2599);
 
 const CN = { composeNode, composeEmptyNode };
 function composeNode(ctx, token, props, onError) {
@@ -10393,16 +10392,16 @@ exports.composeNode = composeNode;
 
 /***/ }),
 
-/***/ 4766:
+/***/ 5413:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var Scalar = __nccwpck_require__(9338);
-var resolveBlockScalar = __nccwpck_require__(9485);
-var resolveFlowScalar = __nccwpck_require__(7578);
+var identity = __nccwpck_require__(1127);
+var Scalar = __nccwpck_require__(3301);
+var resolveBlockScalar = __nccwpck_require__(8913);
+var resolveFlowScalar = __nccwpck_require__(6842);
 
 function composeScalar(ctx, token, tagToken, onError) {
     const { value, type, comment, range } = token.type === 'block-scalar'
@@ -10483,18 +10482,18 @@ exports.composeScalar = composeScalar;
 
 /***/ }),
 
-/***/ 9493:
+/***/ 9984:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var directives = __nccwpck_require__(5400);
-var Document = __nccwpck_require__(42);
-var errors = __nccwpck_require__(4236);
-var identity = __nccwpck_require__(5589);
-var composeDoc = __nccwpck_require__(5050);
-var resolveEnd = __nccwpck_require__(1250);
+var directives = __nccwpck_require__(1342);
+var Document = __nccwpck_require__(3021);
+var errors = __nccwpck_require__(1464);
+var identity = __nccwpck_require__(1127);
+var composeDoc = __nccwpck_require__(3683);
+var resolveEnd = __nccwpck_require__(7788);
 
 function getErrorPos(src) {
     if (typeof src === 'number')
@@ -10712,18 +10711,18 @@ exports.Composer = Composer;
 
 /***/ }),
 
-/***/ 2986:
+/***/ 7103:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Pair = __nccwpck_require__(246);
-var YAMLMap = __nccwpck_require__(6011);
-var resolveProps = __nccwpck_require__(6985);
-var utilContainsNewline = __nccwpck_require__(976);
-var utilFlowIndentCheck = __nccwpck_require__(3669);
-var utilMapIncludes = __nccwpck_require__(6899);
+var Pair = __nccwpck_require__(7165);
+var YAMLMap = __nccwpck_require__(4454);
+var resolveProps = __nccwpck_require__(4631);
+var utilContainsNewline = __nccwpck_require__(9499);
+var utilFlowIndentCheck = __nccwpck_require__(4051);
+var utilMapIncludes = __nccwpck_require__(1187);
 
 const startColMsg = 'All mapping items must start at the same column';
 function resolveBlockMap({ composeNode, composeEmptyNode }, ctx, bm, onError, tag) {
@@ -10835,13 +10834,13 @@ exports.resolveBlockMap = resolveBlockMap;
 
 /***/ }),
 
-/***/ 9485:
+/***/ 8913:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
+var Scalar = __nccwpck_require__(3301);
 
 function resolveBlockScalar(ctx, scalar, onError) {
     const start = scalar.offset;
@@ -11043,15 +11042,15 @@ exports.resolveBlockScalar = resolveBlockScalar;
 
 /***/ }),
 
-/***/ 2289:
+/***/ 334:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var YAMLSeq = __nccwpck_require__(5161);
-var resolveProps = __nccwpck_require__(6985);
-var utilFlowIndentCheck = __nccwpck_require__(3669);
+var YAMLSeq = __nccwpck_require__(2223);
+var resolveProps = __nccwpck_require__(4631);
+var utilFlowIndentCheck = __nccwpck_require__(4051);
 
 function resolveBlockSeq({ composeNode, composeEmptyNode }, ctx, bs, onError, tag) {
     const NodeClass = tag?.nodeClass ?? YAMLSeq.YAMLSeq;
@@ -11100,7 +11099,7 @@ exports.resolveBlockSeq = resolveBlockSeq;
 
 /***/ }),
 
-/***/ 1250:
+/***/ 7788:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -11147,20 +11146,20 @@ exports.resolveEnd = resolveEnd;
 
 /***/ }),
 
-/***/ 45:
+/***/ 3142:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var Pair = __nccwpck_require__(246);
-var YAMLMap = __nccwpck_require__(6011);
-var YAMLSeq = __nccwpck_require__(5161);
-var resolveEnd = __nccwpck_require__(1250);
-var resolveProps = __nccwpck_require__(6985);
-var utilContainsNewline = __nccwpck_require__(976);
-var utilMapIncludes = __nccwpck_require__(6899);
+var identity = __nccwpck_require__(1127);
+var Pair = __nccwpck_require__(7165);
+var YAMLMap = __nccwpck_require__(4454);
+var YAMLSeq = __nccwpck_require__(2223);
+var resolveEnd = __nccwpck_require__(7788);
+var resolveProps = __nccwpck_require__(4631);
+var utilContainsNewline = __nccwpck_require__(9499);
+var utilMapIncludes = __nccwpck_require__(1187);
 
 const blockMsg = 'Block collections are not allowed within flow collections';
 const isBlock = (token) => token && (token.type === 'block-map' || token.type === 'block-seq');
@@ -11358,14 +11357,14 @@ exports.resolveFlowCollection = resolveFlowCollection;
 
 /***/ }),
 
-/***/ 7578:
+/***/ 6842:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
-var resolveEnd = __nccwpck_require__(1250);
+var Scalar = __nccwpck_require__(3301);
+var resolveEnd = __nccwpck_require__(7788);
 
 function resolveFlowScalar(scalar, strict, onError) {
     const { offset, type, source, end } = scalar;
@@ -11591,7 +11590,7 @@ exports.resolveFlowScalar = resolveFlowScalar;
 
 /***/ }),
 
-/***/ 6985:
+/***/ 4631:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -11749,7 +11748,7 @@ exports.resolveProps = resolveProps;
 
 /***/ }),
 
-/***/ 976:
+/***/ 9499:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -11793,7 +11792,7 @@ exports.containsNewline = containsNewline;
 
 /***/ }),
 
-/***/ 8781:
+/***/ 2599:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -11830,13 +11829,13 @@ exports.emptyScalarPosition = emptyScalarPosition;
 
 /***/ }),
 
-/***/ 3669:
+/***/ 4051:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var utilContainsNewline = __nccwpck_require__(976);
+var utilContainsNewline = __nccwpck_require__(9499);
 
 function flowIndentCheck(indent, fc, onError) {
     if (fc?.type === 'flow-collection') {
@@ -11855,13 +11854,13 @@ exports.flowIndentCheck = flowIndentCheck;
 
 /***/ }),
 
-/***/ 6899:
+/***/ 1187:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
+var identity = __nccwpck_require__(1127);
 
 function mapIncludes(ctx, items, search) {
     const { uniqueKeys } = ctx.options;
@@ -11882,23 +11881,23 @@ exports.mapIncludes = mapIncludes;
 
 /***/ }),
 
-/***/ 42:
+/***/ 3021:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Alias = __nccwpck_require__(5639);
-var Collection = __nccwpck_require__(3466);
-var identity = __nccwpck_require__(5589);
-var Pair = __nccwpck_require__(246);
-var toJS = __nccwpck_require__(2463);
-var Schema = __nccwpck_require__(6831);
-var stringifyDocument = __nccwpck_require__(5225);
-var anchors = __nccwpck_require__(8459);
-var applyReviver = __nccwpck_require__(3412);
-var createNode = __nccwpck_require__(9652);
-var directives = __nccwpck_require__(5400);
+var Alias = __nccwpck_require__(4065);
+var Collection = __nccwpck_require__(101);
+var identity = __nccwpck_require__(1127);
+var Pair = __nccwpck_require__(7165);
+var toJS = __nccwpck_require__(4043);
+var Schema = __nccwpck_require__(5840);
+var stringifyDocument = __nccwpck_require__(6829);
+var anchors = __nccwpck_require__(1596);
+var applyReviver = __nccwpck_require__(3661);
+var createNode = __nccwpck_require__(2404);
+var directives = __nccwpck_require__(1342);
 
 class Document {
     constructor(value, replacer, options) {
@@ -12226,14 +12225,14 @@ exports.Document = Document;
 
 /***/ }),
 
-/***/ 8459:
+/***/ 1596:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var visit = __nccwpck_require__(6796);
+var identity = __nccwpck_require__(1127);
+var visit = __nccwpck_require__(204);
 
 /**
  * Verify that the input string is a valid anchor.
@@ -12311,7 +12310,7 @@ exports.findNewAnchor = findNewAnchor;
 
 /***/ }),
 
-/***/ 3412:
+/***/ 3661:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -12375,15 +12374,15 @@ exports.applyReviver = applyReviver;
 
 /***/ }),
 
-/***/ 9652:
+/***/ 2404:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Alias = __nccwpck_require__(5639);
-var identity = __nccwpck_require__(5589);
-var Scalar = __nccwpck_require__(9338);
+var Alias = __nccwpck_require__(4065);
+var identity = __nccwpck_require__(1127);
+var Scalar = __nccwpck_require__(3301);
 
 const defaultTagPrefix = 'tag:yaml.org,2002:';
 function findTagObject(value, tagName, tags) {
@@ -12474,14 +12473,14 @@ exports.createNode = createNode;
 
 /***/ }),
 
-/***/ 5400:
+/***/ 1342:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var visit = __nccwpck_require__(6796);
+var identity = __nccwpck_require__(1127);
+var visit = __nccwpck_require__(204);
 
 const escapeChars = {
     '!': '%21',
@@ -12660,7 +12659,7 @@ exports.Directives = Directives;
 
 /***/ }),
 
-/***/ 4236:
+/***/ 1464:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -12730,28 +12729,28 @@ exports.prettifyError = prettifyError;
 
 /***/ }),
 
-/***/ 4083:
+/***/ 8815:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var composer = __nccwpck_require__(9493);
-var Document = __nccwpck_require__(42);
-var Schema = __nccwpck_require__(6831);
-var errors = __nccwpck_require__(4236);
-var Alias = __nccwpck_require__(5639);
-var identity = __nccwpck_require__(5589);
-var Pair = __nccwpck_require__(246);
-var Scalar = __nccwpck_require__(9338);
-var YAMLMap = __nccwpck_require__(6011);
-var YAMLSeq = __nccwpck_require__(5161);
-var cst = __nccwpck_require__(9169);
-var lexer = __nccwpck_require__(5976);
-var lineCounter = __nccwpck_require__(1929);
-var parser = __nccwpck_require__(3328);
-var publicApi = __nccwpck_require__(8649);
-var visit = __nccwpck_require__(6796);
+var composer = __nccwpck_require__(9984);
+var Document = __nccwpck_require__(3021);
+var Schema = __nccwpck_require__(5840);
+var errors = __nccwpck_require__(1464);
+var Alias = __nccwpck_require__(4065);
+var identity = __nccwpck_require__(1127);
+var Pair = __nccwpck_require__(7165);
+var Scalar = __nccwpck_require__(3301);
+var YAMLMap = __nccwpck_require__(4454);
+var YAMLSeq = __nccwpck_require__(2223);
+var cst = __nccwpck_require__(3461);
+var lexer = __nccwpck_require__(361);
+var lineCounter = __nccwpck_require__(6628);
+var parser = __nccwpck_require__(3456);
+var publicApi = __nccwpck_require__(4047);
+var visit = __nccwpck_require__(204);
 
 
 
@@ -12788,7 +12787,7 @@ exports.visitAsync = visit.visitAsync;
 
 /***/ }),
 
-/***/ 6909:
+/***/ 7249:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -12815,17 +12814,17 @@ exports.warn = warn;
 
 /***/ }),
 
-/***/ 5639:
+/***/ 4065:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var anchors = __nccwpck_require__(8459);
-var visit = __nccwpck_require__(6796);
-var identity = __nccwpck_require__(5589);
-var Node = __nccwpck_require__(1399);
-var toJS = __nccwpck_require__(2463);
+var anchors = __nccwpck_require__(1596);
+var visit = __nccwpck_require__(204);
+var identity = __nccwpck_require__(1127);
+var Node = __nccwpck_require__(6673);
+var toJS = __nccwpck_require__(4043);
 
 class Alias extends Node.NodeBase {
     constructor(source) {
@@ -12926,15 +12925,15 @@ exports.Alias = Alias;
 
 /***/ }),
 
-/***/ 3466:
+/***/ 101:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var createNode = __nccwpck_require__(9652);
-var identity = __nccwpck_require__(5589);
-var Node = __nccwpck_require__(1399);
+var createNode = __nccwpck_require__(2404);
+var identity = __nccwpck_require__(1127);
+var Node = __nccwpck_require__(6673);
 
 function collectionFromPath(schema, path, value) {
     let v = value;
@@ -13086,15 +13085,15 @@ exports.isEmptyPath = isEmptyPath;
 
 /***/ }),
 
-/***/ 1399:
+/***/ 6673:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var applyReviver = __nccwpck_require__(3412);
-var identity = __nccwpck_require__(5589);
-var toJS = __nccwpck_require__(2463);
+var applyReviver = __nccwpck_require__(3661);
+var identity = __nccwpck_require__(1127);
+var toJS = __nccwpck_require__(4043);
 
 class NodeBase {
     constructor(type) {
@@ -13134,16 +13133,16 @@ exports.NodeBase = NodeBase;
 
 /***/ }),
 
-/***/ 246:
+/***/ 7165:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var createNode = __nccwpck_require__(9652);
-var stringifyPair = __nccwpck_require__(4875);
-var addPairToJSMap = __nccwpck_require__(4676);
-var identity = __nccwpck_require__(5589);
+var createNode = __nccwpck_require__(2404);
+var stringifyPair = __nccwpck_require__(9748);
+var addPairToJSMap = __nccwpck_require__(7104);
+var identity = __nccwpck_require__(1127);
 
 function createPair(key, value, ctx) {
     const k = createNode.createNode(key, undefined, ctx);
@@ -13181,15 +13180,15 @@ exports.createPair = createPair;
 
 /***/ }),
 
-/***/ 9338:
+/***/ 3301:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var Node = __nccwpck_require__(1399);
-var toJS = __nccwpck_require__(2463);
+var identity = __nccwpck_require__(1127);
+var Node = __nccwpck_require__(6673);
+var toJS = __nccwpck_require__(4043);
 
 const isScalarValue = (value) => !value || (typeof value !== 'function' && typeof value !== 'object');
 class Scalar extends Node.NodeBase {
@@ -13216,18 +13215,18 @@ exports.isScalarValue = isScalarValue;
 
 /***/ }),
 
-/***/ 6011:
+/***/ 4454:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var stringifyCollection = __nccwpck_require__(2466);
-var addPairToJSMap = __nccwpck_require__(4676);
-var Collection = __nccwpck_require__(3466);
-var identity = __nccwpck_require__(5589);
-var Pair = __nccwpck_require__(246);
-var Scalar = __nccwpck_require__(9338);
+var stringifyCollection = __nccwpck_require__(1212);
+var addPairToJSMap = __nccwpck_require__(7104);
+var Collection = __nccwpck_require__(101);
+var identity = __nccwpck_require__(1127);
+var Pair = __nccwpck_require__(7165);
+var Scalar = __nccwpck_require__(3301);
 
 function findPair(items, key) {
     const k = identity.isScalar(key) ? key.value : key;
@@ -13371,18 +13370,18 @@ exports.findPair = findPair;
 
 /***/ }),
 
-/***/ 5161:
+/***/ 2223:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var createNode = __nccwpck_require__(9652);
-var stringifyCollection = __nccwpck_require__(2466);
-var Collection = __nccwpck_require__(3466);
-var identity = __nccwpck_require__(5589);
-var Scalar = __nccwpck_require__(9338);
-var toJS = __nccwpck_require__(2463);
+var createNode = __nccwpck_require__(2404);
+var stringifyCollection = __nccwpck_require__(1212);
+var Collection = __nccwpck_require__(101);
+var identity = __nccwpck_require__(1127);
+var Scalar = __nccwpck_require__(3301);
+var toJS = __nccwpck_require__(4043);
 
 class YAMLSeq extends Collection.Collection {
     static get tagName() {
@@ -13494,17 +13493,17 @@ exports.YAMLSeq = YAMLSeq;
 
 /***/ }),
 
-/***/ 4676:
+/***/ 7104:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var log = __nccwpck_require__(6909);
-var stringify = __nccwpck_require__(8409);
-var identity = __nccwpck_require__(5589);
-var Scalar = __nccwpck_require__(9338);
-var toJS = __nccwpck_require__(2463);
+var log = __nccwpck_require__(7249);
+var stringify = __nccwpck_require__(2148);
+var identity = __nccwpck_require__(1127);
+var Scalar = __nccwpck_require__(3301);
+var toJS = __nccwpck_require__(4043);
 
 const MERGE_KEY = '<<';
 function addPairToJSMap(ctx, map, { key, value }) {
@@ -13608,7 +13607,7 @@ exports.addPairToJSMap = addPairToJSMap;
 
 /***/ }),
 
-/***/ 5589:
+/***/ 1127:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -13669,13 +13668,13 @@ exports.isSeq = isSeq;
 
 /***/ }),
 
-/***/ 2463:
+/***/ 4043:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
+var identity = __nccwpck_require__(1127);
 
 /**
  * Recursively convert any node or its contents to native JavaScript
@@ -13716,16 +13715,16 @@ exports.toJS = toJS;
 
 /***/ }),
 
-/***/ 9027:
+/***/ 110:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var resolveBlockScalar = __nccwpck_require__(9485);
-var resolveFlowScalar = __nccwpck_require__(7578);
-var errors = __nccwpck_require__(4236);
-var stringifyString = __nccwpck_require__(6226);
+var resolveBlockScalar = __nccwpck_require__(8913);
+var resolveFlowScalar = __nccwpck_require__(6842);
+var errors = __nccwpck_require__(1464);
+var stringifyString = __nccwpck_require__(3069);
 
 function resolveAsScalar(token, strict = true, onError) {
     if (token) {
@@ -13942,7 +13941,7 @@ exports.setScalarValue = setScalarValue;
 
 /***/ }),
 
-/***/ 6307:
+/***/ 1733:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -14013,7 +14012,7 @@ exports.stringify = stringify;
 
 /***/ }),
 
-/***/ 8497:
+/***/ 7715:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -14120,15 +14119,15 @@ exports.visit = visit;
 
 /***/ }),
 
-/***/ 9169:
+/***/ 3461:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var cstScalar = __nccwpck_require__(9027);
-var cstStringify = __nccwpck_require__(6307);
-var cstVisit = __nccwpck_require__(8497);
+var cstScalar = __nccwpck_require__(110);
+var cstStringify = __nccwpck_require__(1733);
+var cstVisit = __nccwpck_require__(7715);
 
 /** The byte order mark */
 const BOM = '\u{FEFF}';
@@ -14240,13 +14239,13 @@ exports.tokenType = tokenType;
 
 /***/ }),
 
-/***/ 5976:
+/***/ 361:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var cst = __nccwpck_require__(9169);
+var cst = __nccwpck_require__(3461);
 
 /*
 START -> stream
@@ -14971,7 +14970,7 @@ exports.Lexer = Lexer;
 
 /***/ }),
 
-/***/ 1929:
+/***/ 6628:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -15020,14 +15019,14 @@ exports.LineCounter = LineCounter;
 
 /***/ }),
 
-/***/ 3328:
+/***/ 3456:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var cst = __nccwpck_require__(9169);
-var lexer = __nccwpck_require__(5976);
+var cst = __nccwpck_require__(3461);
+var lexer = __nccwpck_require__(361);
 
 function includesToken(list, type) {
     for (let i = 0; i < list.length; ++i)
@@ -15984,18 +15983,18 @@ exports.Parser = Parser;
 
 /***/ }),
 
-/***/ 8649:
+/***/ 4047:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var composer = __nccwpck_require__(9493);
-var Document = __nccwpck_require__(42);
-var errors = __nccwpck_require__(4236);
-var log = __nccwpck_require__(6909);
-var lineCounter = __nccwpck_require__(1929);
-var parser = __nccwpck_require__(3328);
+var composer = __nccwpck_require__(9984);
+var Document = __nccwpck_require__(3021);
+var errors = __nccwpck_require__(1464);
+var log = __nccwpck_require__(7249);
+var lineCounter = __nccwpck_require__(6628);
+var parser = __nccwpck_require__(3456);
 
 function parseOptions(options) {
     const prettyErrors = options.prettyErrors !== false;
@@ -16096,17 +16095,17 @@ exports.stringify = stringify;
 
 /***/ }),
 
-/***/ 6831:
+/***/ 5840:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var map = __nccwpck_require__(83);
-var seq = __nccwpck_require__(1693);
-var string = __nccwpck_require__(2201);
-var tags = __nccwpck_require__(4138);
+var identity = __nccwpck_require__(1127);
+var map = __nccwpck_require__(7451);
+var seq = __nccwpck_require__(1706);
+var string = __nccwpck_require__(6464);
+var tags = __nccwpck_require__(18);
 
 const sortMapEntriesByKey = (a, b) => a.key < b.key ? -1 : a.key > b.key ? 1 : 0;
 class Schema {
@@ -16144,14 +16143,14 @@ exports.Schema = Schema;
 
 /***/ }),
 
-/***/ 83:
+/***/ 7451:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var YAMLMap = __nccwpck_require__(6011);
+var identity = __nccwpck_require__(1127);
+var YAMLMap = __nccwpck_require__(4454);
 
 const map = {
     collection: 'map',
@@ -16171,13 +16170,13 @@ exports.map = map;
 
 /***/ }),
 
-/***/ 6703:
+/***/ 3632:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
+var Scalar = __nccwpck_require__(3301);
 
 const nullTag = {
     identify: value => value == null,
@@ -16196,14 +16195,14 @@ exports.nullTag = nullTag;
 
 /***/ }),
 
-/***/ 1693:
+/***/ 1706:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var YAMLSeq = __nccwpck_require__(5161);
+var identity = __nccwpck_require__(1127);
+var YAMLSeq = __nccwpck_require__(2223);
 
 const seq = {
     collection: 'seq',
@@ -16223,13 +16222,13 @@ exports.seq = seq;
 
 /***/ }),
 
-/***/ 2201:
+/***/ 6464:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var stringifyString = __nccwpck_require__(6226);
+var stringifyString = __nccwpck_require__(3069);
 
 const string = {
     identify: value => typeof value === 'string',
@@ -16247,13 +16246,13 @@ exports.string = string;
 
 /***/ }),
 
-/***/ 2045:
+/***/ 3959:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
+var Scalar = __nccwpck_require__(3301);
 
 const boolTag = {
     identify: value => typeof value === 'boolean',
@@ -16276,14 +16275,14 @@ exports.boolTag = boolTag;
 
 /***/ }),
 
-/***/ 6810:
+/***/ 8405:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
-var stringifyNumber = __nccwpck_require__(4174);
+var Scalar = __nccwpck_require__(3301);
+var stringifyNumber = __nccwpck_require__(8689);
 
 const floatNaN = {
     identify: value => typeof value === 'number',
@@ -16331,13 +16330,13 @@ exports.floatNaN = floatNaN;
 
 /***/ }),
 
-/***/ 3019:
+/***/ 9874:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var stringifyNumber = __nccwpck_require__(4174);
+var stringifyNumber = __nccwpck_require__(8689);
 
 const intIdentify = (value) => typeof value === 'bigint' || Number.isInteger(value);
 const intResolve = (str, offset, radix, { intAsBigInt }) => (intAsBigInt ? BigInt(str) : parseInt(str.substring(offset), radix));
@@ -16381,19 +16380,19 @@ exports.intOct = intOct;
 
 /***/ }),
 
-/***/ 27:
+/***/ 896:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var map = __nccwpck_require__(83);
-var _null = __nccwpck_require__(6703);
-var seq = __nccwpck_require__(1693);
-var string = __nccwpck_require__(2201);
-var bool = __nccwpck_require__(2045);
-var float = __nccwpck_require__(6810);
-var int = __nccwpck_require__(3019);
+var map = __nccwpck_require__(7451);
+var _null = __nccwpck_require__(3632);
+var seq = __nccwpck_require__(1706);
+var string = __nccwpck_require__(6464);
+var bool = __nccwpck_require__(3959);
+var float = __nccwpck_require__(8405);
+var int = __nccwpck_require__(9874);
 
 const schema = [
     map.map,
@@ -16414,15 +16413,15 @@ exports.schema = schema;
 
 /***/ }),
 
-/***/ 4545:
+/***/ 3559:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
-var map = __nccwpck_require__(83);
-var seq = __nccwpck_require__(1693);
+var Scalar = __nccwpck_require__(3301);
+var map = __nccwpck_require__(7451);
+var seq = __nccwpck_require__(1706);
 
 function intIdentify(value) {
     return typeof value === 'bigint' || Number.isInteger(value);
@@ -16486,27 +16485,27 @@ exports.schema = schema;
 
 /***/ }),
 
-/***/ 4138:
+/***/ 18:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var map = __nccwpck_require__(83);
-var _null = __nccwpck_require__(6703);
-var seq = __nccwpck_require__(1693);
-var string = __nccwpck_require__(2201);
-var bool = __nccwpck_require__(2045);
-var float = __nccwpck_require__(6810);
-var int = __nccwpck_require__(3019);
-var schema = __nccwpck_require__(27);
-var schema$1 = __nccwpck_require__(4545);
-var binary = __nccwpck_require__(5724);
-var omap = __nccwpck_require__(8974);
-var pairs = __nccwpck_require__(9841);
-var schema$2 = __nccwpck_require__(5389);
-var set = __nccwpck_require__(7847);
-var timestamp = __nccwpck_require__(1156);
+var map = __nccwpck_require__(7451);
+var _null = __nccwpck_require__(3632);
+var seq = __nccwpck_require__(1706);
+var string = __nccwpck_require__(6464);
+var bool = __nccwpck_require__(3959);
+var float = __nccwpck_require__(8405);
+var int = __nccwpck_require__(9874);
+var schema = __nccwpck_require__(896);
+var schema$1 = __nccwpck_require__(3559);
+var binary = __nccwpck_require__(6083);
+var omap = __nccwpck_require__(303);
+var pairs = __nccwpck_require__(8385);
+var schema$2 = __nccwpck_require__(5913);
+var set = __nccwpck_require__(1528);
+var timestamp = __nccwpck_require__(6752);
 
 const schemas = new Map([
     ['core', schema.schema],
@@ -16580,14 +16579,14 @@ exports.getTags = getTags;
 
 /***/ }),
 
-/***/ 5724:
+/***/ 6083:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
-var stringifyString = __nccwpck_require__(6226);
+var Scalar = __nccwpck_require__(3301);
+var stringifyString = __nccwpck_require__(3069);
 
 const binary = {
     identify: value => value instanceof Uint8Array, // Buffer inherits from Uint8Array
@@ -16656,13 +16655,13 @@ exports.binary = binary;
 
 /***/ }),
 
-/***/ 2631:
+/***/ 8398:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
+var Scalar = __nccwpck_require__(3301);
 
 function boolStringify({ value, source }, ctx) {
     const boolObj = value ? trueTag : falseTag;
@@ -16693,14 +16692,14 @@ exports.trueTag = trueTag;
 
 /***/ }),
 
-/***/ 8035:
+/***/ 5782:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
-var stringifyNumber = __nccwpck_require__(4174);
+var Scalar = __nccwpck_require__(3301);
+var stringifyNumber = __nccwpck_require__(8689);
 
 const floatNaN = {
     identify: value => typeof value === 'number',
@@ -16751,13 +16750,13 @@ exports.floatNaN = floatNaN;
 
 /***/ }),
 
-/***/ 9503:
+/***/ 873:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var stringifyNumber = __nccwpck_require__(4174);
+var stringifyNumber = __nccwpck_require__(8689);
 
 const intIdentify = (value) => typeof value === 'bigint' || Number.isInteger(value);
 function intResolve(str, offset, radix, { intAsBigInt }) {
@@ -16835,17 +16834,17 @@ exports.intOct = intOct;
 
 /***/ }),
 
-/***/ 8974:
+/***/ 303:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var toJS = __nccwpck_require__(2463);
-var YAMLMap = __nccwpck_require__(6011);
-var YAMLSeq = __nccwpck_require__(5161);
-var pairs = __nccwpck_require__(9841);
+var identity = __nccwpck_require__(1127);
+var toJS = __nccwpck_require__(4043);
+var YAMLMap = __nccwpck_require__(4454);
+var YAMLSeq = __nccwpck_require__(2223);
+var pairs = __nccwpck_require__(8385);
 
 class YAMLOMap extends YAMLSeq.YAMLSeq {
     constructor() {
@@ -16920,16 +16919,16 @@ exports.omap = omap;
 
 /***/ }),
 
-/***/ 9841:
+/***/ 8385:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var Pair = __nccwpck_require__(246);
-var Scalar = __nccwpck_require__(9338);
-var YAMLSeq = __nccwpck_require__(5161);
+var identity = __nccwpck_require__(1127);
+var Pair = __nccwpck_require__(7165);
+var Scalar = __nccwpck_require__(3301);
+var YAMLSeq = __nccwpck_require__(2223);
 
 function resolvePairs(seq, onError) {
     if (identity.isSeq(seq)) {
@@ -17010,24 +17009,24 @@ exports.resolvePairs = resolvePairs;
 
 /***/ }),
 
-/***/ 5389:
+/***/ 5913:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var map = __nccwpck_require__(83);
-var _null = __nccwpck_require__(6703);
-var seq = __nccwpck_require__(1693);
-var string = __nccwpck_require__(2201);
-var binary = __nccwpck_require__(5724);
-var bool = __nccwpck_require__(2631);
-var float = __nccwpck_require__(8035);
-var int = __nccwpck_require__(9503);
-var omap = __nccwpck_require__(8974);
-var pairs = __nccwpck_require__(9841);
-var set = __nccwpck_require__(7847);
-var timestamp = __nccwpck_require__(1156);
+var map = __nccwpck_require__(7451);
+var _null = __nccwpck_require__(3632);
+var seq = __nccwpck_require__(1706);
+var string = __nccwpck_require__(6464);
+var binary = __nccwpck_require__(6083);
+var bool = __nccwpck_require__(8398);
+var float = __nccwpck_require__(5782);
+var int = __nccwpck_require__(873);
+var omap = __nccwpck_require__(303);
+var pairs = __nccwpck_require__(8385);
+var set = __nccwpck_require__(1528);
+var timestamp = __nccwpck_require__(6752);
 
 const schema = [
     map.map,
@@ -17057,15 +17056,15 @@ exports.schema = schema;
 
 /***/ }),
 
-/***/ 7847:
+/***/ 1528:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var Pair = __nccwpck_require__(246);
-var YAMLMap = __nccwpck_require__(6011);
+var identity = __nccwpck_require__(1127);
+var Pair = __nccwpck_require__(7165);
+var YAMLMap = __nccwpck_require__(4454);
 
 class YAMLSet extends YAMLMap.YAMLMap {
     constructor(schema) {
@@ -17161,13 +17160,13 @@ exports.set = set;
 
 /***/ }),
 
-/***/ 1156:
+/***/ 6752:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var stringifyNumber = __nccwpck_require__(4174);
+var stringifyNumber = __nccwpck_require__(8689);
 
 /** Internal types handle bigint as number, because TS can't figure it out. */
 function parseSexagesimal(str, asBigInt) {
@@ -17274,7 +17273,7 @@ exports.timestamp = timestamp;
 
 /***/ }),
 
-/***/ 2889:
+/***/ 4475:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -17431,16 +17430,16 @@ exports.foldFlowLines = foldFlowLines;
 
 /***/ }),
 
-/***/ 8409:
+/***/ 2148:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var anchors = __nccwpck_require__(8459);
-var identity = __nccwpck_require__(5589);
-var stringifyComment = __nccwpck_require__(5182);
-var stringifyString = __nccwpck_require__(6226);
+var anchors = __nccwpck_require__(1596);
+var identity = __nccwpck_require__(1127);
+var stringifyComment = __nccwpck_require__(9799);
+var stringifyString = __nccwpck_require__(3069);
 
 function createStringifyContext(doc, options) {
     const opt = Object.assign({
@@ -17566,15 +17565,15 @@ exports.stringify = stringify;
 
 /***/ }),
 
-/***/ 2466:
+/***/ 1212:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var stringify = __nccwpck_require__(8409);
-var stringifyComment = __nccwpck_require__(5182);
+var identity = __nccwpck_require__(1127);
+var stringify = __nccwpck_require__(2148);
+var stringifyComment = __nccwpck_require__(9799);
 
 function stringifyCollection(collection, ctx, options) {
     const flow = ctx.inFlow ?? collection.flow;
@@ -17719,7 +17718,7 @@ exports.stringifyCollection = stringifyCollection;
 
 /***/ }),
 
-/***/ 5182:
+/***/ 9799:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -17751,15 +17750,15 @@ exports.stringifyComment = stringifyComment;
 
 /***/ }),
 
-/***/ 5225:
+/***/ 6829:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var stringify = __nccwpck_require__(8409);
-var stringifyComment = __nccwpck_require__(5182);
+var identity = __nccwpck_require__(1127);
+var stringify = __nccwpck_require__(2148);
+var stringifyComment = __nccwpck_require__(9799);
 
 function stringifyDocument(doc, options) {
     const lines = [];
@@ -17846,7 +17845,7 @@ exports.stringifyDocument = stringifyDocument;
 
 /***/ }),
 
-/***/ 4174:
+/***/ 8689:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -17880,16 +17879,16 @@ exports.stringifyNumber = stringifyNumber;
 
 /***/ }),
 
-/***/ 4875:
+/***/ 9748:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
-var Scalar = __nccwpck_require__(9338);
-var stringify = __nccwpck_require__(8409);
-var stringifyComment = __nccwpck_require__(5182);
+var identity = __nccwpck_require__(1127);
+var Scalar = __nccwpck_require__(3301);
+var stringify = __nccwpck_require__(2148);
+var stringifyComment = __nccwpck_require__(9799);
 
 function stringifyPair({ key, value }, ctx, onComment, onChompKeep) {
     const { allNullValues, doc, indent, indentStep, options: { commentString, indentSeq, simpleKeys } } = ctx;
@@ -18040,14 +18039,14 @@ exports.stringifyPair = stringifyPair;
 
 /***/ }),
 
-/***/ 6226:
+/***/ 3069:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var Scalar = __nccwpck_require__(9338);
-var foldFlowLines = __nccwpck_require__(2889);
+var Scalar = __nccwpck_require__(3301);
+var foldFlowLines = __nccwpck_require__(4475);
 
 const getFoldOptions = (ctx, isBlock) => ({
     indentAtStart: isBlock ? ctx.indent.length : ctx.indentAtStart,
@@ -18378,13 +18377,13 @@ exports.stringifyString = stringifyString;
 
 /***/ }),
 
-/***/ 6796:
+/***/ 204:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var identity = __nccwpck_require__(5589);
+var identity = __nccwpck_require__(1127);
 
 const BREAK = Symbol('break visit');
 const SKIP = Symbol('skip children');
@@ -18622,27 +18621,27 @@ exports.visitAsync = visitAsync;
 
 /***/ }),
 
-/***/ 4634:
+/***/ 6489:
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"http://json-schema.org/draft-07/schema#","$id":"https://json.schemastore.org/dependabot-2.0.json","additionalProperties":false,"definitions":{"timezone":{"type":"string","enum":["Africa/Abidjan","Africa/Accra","Africa/Addis_Ababa","Africa/Algiers","Africa/Asmara","Africa/Asmera","Africa/Bamako","Africa/Bangui","Africa/Banjul","Africa/Bissau","Africa/Blantyre","Africa/Brazzaville","Africa/Bujumbura","Africa/Cairo","Africa/Casablanca","Africa/Ceuta","Africa/Conakry","Africa/Dakar","Africa/Dar_es_Salaam","Africa/Djibouti","Africa/Douala","Africa/El_Aaiun","Africa/Freetown","Africa/Gaborone","Africa/Harare","Africa/Johannesburg","Africa/Juba","Africa/Kampala","Africa/Khartoum","Africa/Kigali","Africa/Kinshasa","Africa/Lagos","Africa/Libreville","Africa/Lome","Africa/Luanda","Africa/Lubumbashi","Africa/Lusaka","Africa/Malabo","Africa/Maputo","Africa/Maseru","Africa/Mbabane","Africa/Mogadishu","Africa/Monrovia","Africa/Nairobi","Africa/Ndjamena","Africa/Niamey","Africa/Nouakchott","Africa/Ouagadougou","Africa/Porto-Novo","Africa/Sao_Tome","Africa/Timbuktu","Africa/Tripoli","Africa/Tunis","Africa/Windhoek","America/Adak","America/Anchorage","America/Anguilla","America/Antigua","America/Araguaina","America/Argentina/Buenos_Aires","America/Argentina/Catamarca","America/Argentina/ComodRivadavia","America/Argentina/Cordoba","America/Argentina/Jujuy","America/Argentina/La_Rioja","America/Argentina/Mendoza","America/Argentina/Rio_Gallegos","America/Argentina/Salta","America/Argentina/San_Juan","America/Argentina/San_Luis","America/Argentina/Tucuman","America/Argentina/Ushuaia","America/Aruba","America/Asuncion","America/Atikokan","America/Atka","America/Bahia","America/Bahia_Banderas","America/Barbados","America/Belem","America/Belize","America/Blanc-Sablon","America/Boa_Vista","America/Bogota","America/Boise","America/Buenos_Aires","America/Cambridge_Bay","America/Campo_Grande","America/Cancun","America/Caracas","America/Catamarca","America/Cayenne","America/Cayman","America/Chicago","America/Chihuahua","America/Coral_Harbour","America/Cordoba","America/Costa_Rica","America/Creston","America/Cuiaba","America/Curacao","America/Danmarkshavn","America/Dawson","America/Dawson_Creek","America/Denver","America/Detroit","America/Dominica","America/Edmonton","America/Eirunepe","America/El_Salvador","America/Ensenada","America/Fort_Nelson","America/Fort_Wayne","America/Fortaleza","America/Glace_Bay","America/Godthab","America/Goose_Bay","America/Grand_Turk","America/Grenada","America/Guadeloupe","America/Guatemala","America/Guayaquil","America/Guyana","America/Halifax","America/Havana","America/Hermosillo","America/Indiana/Indianapolis","America/Indiana/Knox","America/Indiana/Marengo","America/Indiana/Petersburg","America/Indiana/Tell_City","America/Indiana/Vevay","America/Indiana/Vincennes","America/Indiana/Winamac","America/Indianapolis","America/Inuvik","America/Iqaluit","America/Jamaica","America/Jujuy","America/Juneau","America/Kentucky/Louisville","America/Kentucky/Monticello","America/Knox_IN","America/Kralendijk","America/La_Paz","America/Lima","America/Los_Angeles","America/Louisville","America/Lower_Princes","America/Maceio","America/Managua","America/Manaus","America/Marigot","America/Martinique","America/Matamoros","America/Mazatlan","America/Mendoza","America/Menominee","America/Merida","America/Metlakatla","America/Mexico_City","America/Miquelon","America/Moncton","America/Monterrey","America/Montevideo","America/Montreal","America/Montserrat","America/Nassau","America/New_York","America/Nipigon","America/Nome","America/Noronha","America/North_Dakota/Beulah","America/North_Dakota/Center","America/North_Dakota/New_Salem","America/Nuuk","America/Ojinaga","America/Panama","America/Pangnirtung","America/Paramaribo","America/Phoenix","America/Port-au-Prince","America/Port_of_Spain","America/Porto_Acre","America/Porto_Velho","America/Puerto_Rico","America/Punta_Arenas","America/Rainy_River","America/Rankin_Inlet","America/Recife","America/Regina","America/Resolute","America/Rio_Branco","America/Rosario","America/Santa_Isabel","America/Santarem","America/Santiago","America/Santo_Domingo","America/Sao_Paulo","America/Scoresbysund","America/Shiprock","America/Sitka","America/St_Barthelemy","America/St_Johns","America/St_Kitts","America/St_Lucia","America/St_Thomas","America/St_Vincent","America/Swift_Current","America/Tegucigalpa","America/Thule","America/Thunder_Bay","America/Tijuana","America/Toronto","America/Tortola","America/Vancouver","America/Virgin","America/Whitehorse","America/Winnipeg","America/Yakutat","America/Yellowknife","Antarctica/Casey","Antarctica/Davis","Antarctica/DumontDUrville","Antarctica/Macquarie","Antarctica/Mawson","Antarctica/McMurdo","Antarctica/Palmer","Antarctica/Rothera","Antarctica/South_Pole","Antarctica/Syowa","Antarctica/Troll","Antarctica/Vostok","Arctic/Longyearbyen","Asia/Aden","Asia/Almaty","Asia/Amman","Asia/Anadyr","Asia/Aqtau","Asia/Aqtobe","Asia/Ashgabat","Asia/Ashkhabad","Asia/Atyrau","Asia/Baghdad","Asia/Bahrain","Asia/Baku","Asia/Bangkok","Asia/Barnaul","Asia/Beirut","Asia/Bishkek","Asia/Brunei","Asia/Calcutta","Asia/Chita","Asia/Choibalsan","Asia/Chongqing","Asia/Chungking","Asia/Colombo","Asia/Dacca","Asia/Damascus","Asia/Dhaka","Asia/Dili","Asia/Dubai","Asia/Dushanbe","Asia/Famagusta","Asia/Gaza","Asia/Harbin","Asia/Hebron","Asia/Ho_Chi_Minh","Asia/Hong_Kong","Asia/Hovd","Asia/Irkutsk","Asia/Istanbul","Asia/Jakarta","Asia/Jayapura","Asia/Jerusalem","Asia/Kabul","Asia/Kamchatka","Asia/Karachi","Asia/Kashgar","Asia/Kathmandu","Asia/Katmandu","Asia/Khandyga","Asia/Kolkata","Asia/Krasnoyarsk","Asia/Kuala_Lumpur","Asia/Kuching","Asia/Kuwait","Asia/Macao","Asia/Macau","Asia/Magadan","Asia/Makassar","Asia/Manila","Asia/Muscat","Asia/Nicosia","Asia/Novokuznetsk","Asia/Novosibirsk","Asia/Omsk","Asia/Oral","Asia/Phnom_Penh","Asia/Pontianak","Asia/Pyongyang","Asia/Qatar","Asia/Qostanay","Asia/Qyzylorda","Asia/Rangoon","Asia/Riyadh","Asia/Saigon","Asia/Sakhalin","Asia/Samarkand","Asia/Seoul","Asia/Shanghai","Asia/Singapore","Asia/Srednekolymsk","Asia/Taipei","Asia/Tashkent","Asia/Tbilisi","Asia/Tehran","Asia/Tel_Aviv","Asia/Thimbu","Asia/Thimphu","Asia/Tokyo","Asia/Tomsk","Asia/Ujung_Pandang","Asia/Ulaanbaatar","Asia/Ulan_Bator","Asia/Urumqi","Asia/Ust-Nera","Asia/Vientiane","Asia/Vladivostok","Asia/Yakutsk","Asia/Yangon","Asia/Yekaterinburg","Asia/Yerevan","Atlantic/Azores","Atlantic/Bermuda","Atlantic/Canary","Atlantic/Cape_Verde","Atlantic/Faeroe","Atlantic/Faroe","Atlantic/Jan_Mayen","Atlantic/Madeira","Atlantic/Reykjavik","Atlantic/South_Georgia","Atlantic/St_Helena","Atlantic/Stanley","Australia/ACT","Australia/Adelaide","Australia/Brisbane","Australia/Broken_Hill","Australia/Canberra","Australia/Currie","Australia/Darwin","Australia/Eucla","Australia/Hobart","Australia/LHI","Australia/Lindeman","Australia/Lord_Howe","Australia/Melbourne","Australia/North","Australia/NSW","Australia/Perth","Australia/Queensland","Australia/South","Australia/Sydney","Australia/Tasmania","Australia/Victoria","Australia/West","Australia/Yancowinna","Brazil/Acre","Brazil/DeNoronha","Brazil/East","Brazil/West","Canada/Atlantic","Canada/Central","Canada/Eastern","Canada/Mountain","Canada/Newfoundland","Canada/Pacific","Canada/Saskatchewan","Canada/Yukon","Chile/Continental","Chile/EasterIsland","Cuba","Egypt","Eire","Etc/GMT","Etc/GMT+0","Etc/GMT+1","Etc/GMT+10","Etc/GMT+11","Etc/GMT+12","Etc/GMT+2","Etc/GMT+3","Etc/GMT+4","Etc/GMT+5","Etc/GMT+6","Etc/GMT+7","Etc/GMT+8","Etc/GMT+9","Etc/GMT-0","Etc/GMT-1","Etc/GMT-10","Etc/GMT-11","Etc/GMT-12","Etc/GMT-13","Etc/GMT-14","Etc/GMT-2","Etc/GMT-3","Etc/GMT-4","Etc/GMT-5","Etc/GMT-6","Etc/GMT-7","Etc/GMT-8","Etc/GMT-9","Etc/GMT0","Etc/Greenwich","Etc/UCT","Etc/Universal","Etc/UTC","Etc/Zulu","Europe/Amsterdam","Europe/Andorra","Europe/Astrakhan","Europe/Athens","Europe/Belfast","Europe/Belgrade","Europe/Berlin","Europe/Bratislava","Europe/Brussels","Europe/Bucharest","Europe/Budapest","Europe/Busingen","Europe/Chisinau","Europe/Copenhagen","Europe/Dublin","Europe/Gibraltar","Europe/Guernsey","Europe/Helsinki","Europe/Isle_of_Man","Europe/Istanbul","Europe/Jersey","Europe/Kaliningrad","Europe/Kiev","Europe/Kirov","Europe/Kyiv","Europe/Lisbon","Europe/Ljubljana","Europe/London","Europe/Luxembourg","Europe/Madrid","Europe/Malta","Europe/Mariehamn","Europe/Minsk","Europe/Monaco","Europe/Moscow","Europe/Nicosia","Europe/Oslo","Europe/Paris","Europe/Podgorica","Europe/Prague","Europe/Riga","Europe/Rome","Europe/Samara","Europe/San_Marino","Europe/Sarajevo","Europe/Saratov","Europe/Simferopol","Europe/Skopje","Europe/Sofia","Europe/Stockholm","Europe/Tallinn","Europe/Tirane","Europe/Tiraspol","Europe/Ulyanovsk","Europe/Uzhgorod","Europe/Vaduz","Europe/Vatican","Europe/Vienna","Europe/Vilnius","Europe/Volgograd","Europe/Warsaw","Europe/Zagreb","Europe/Zaporozhye","Europe/Zurich","GB","GB-Eire","Hongkong","Iceland","Indian/Antananarivo","Indian/Chagos","Indian/Christmas","Indian/Cocos","Indian/Comoro","Indian/Kerguelen","Indian/Mahe","Indian/Maldives","Indian/Mauritius","Indian/Mayotte","Indian/Reunion","Iran","Israel","Jamaica","Japan","Kwajalein","Libya","Mexico/BajaNorte","Mexico/BajaSur","Mexico/General","Navajo","NZ","NZ-CHAT","Pacific/Apia","Pacific/Auckland","Pacific/Bougainville","Pacific/Chatham","Pacific/Chuuk","Pacific/Easter","Pacific/Efate","Pacific/Enderbury","Pacific/Fakaofo","Pacific/Fiji","Pacific/Funafuti","Pacific/Galapagos","Pacific/Gambier","Pacific/Guadalcanal","Pacific/Guam","Pacific/Honolulu","Pacific/Johnston","Pacific/Kanton","Pacific/Kiritimati","Pacific/Kosrae","Pacific/Kwajalein","Pacific/Majuro","Pacific/Marquesas","Pacific/Midway","Pacific/Nauru","Pacific/Niue","Pacific/Norfolk","Pacific/Noumea","Pacific/Pago_Pago","Pacific/Palau","Pacific/Pitcairn","Pacific/Pohnpei","Pacific/Ponape","Pacific/Port_Moresby","Pacific/Rarotonga","Pacific/Saipan","Pacific/Samoa","Pacific/Tahiti","Pacific/Tarawa","Pacific/Tongatapu","Pacific/Truk","Pacific/Wake","Pacific/Wallis","Pacific/Yap","Poland","Portugal","PRC","ROC","Singapore","US/Alaska","US/Aleutian","US/Arizona","US/Central","US/East-Indiana","US/Eastern","US/Hawaii","US/Indiana-Starke","US/Michigan","US/Mountain","US/Pacific","US/Samoa"]},"dependency-type":{"type":"string","enum":["direct","indirect","all","production","development"],"x-intellij-enum-metadata":{"direct":{"description":"All explicitly defined dependencies."},"indirect":{"description":"Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies)."},"all":{"description":"All explicitly defined dependencies. For bundler, pip, composer, cargo, also the dependencies of direct dependencies."},"production":{"description":"Only dependencies in the \'Product dependency group\'."},"development":{"description":"Only dependencies in the \'Development dependency group\'."}}},"update-types":{"type":"array","items":{"type":"string","enum":["version-update:semver-major","version-update:semver-minor","version-update:semver-patch"]},"minItems":1,"uniqueItems":true},"insecure-external-code-execution":{"type":"string","enum":["allow","deny"]},"versioning-strategy":{"type":"string","enum":["auto","increase","increase-if-necessary","lockfile-only","widen"],"x-intellij-enum-metadata":{"auto":{"description":"Try to differentiate between apps and libraries. Use \'increase\' for apps and \'widen\' for libraries."},"increase":{"description":"Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound."},"increase-if-necessary":{"description":"Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint."},"lockfile-only":{"description":"Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes."},"widen":{"description":"Widen the allowed version requirements to include both the new and old versions, when possible. Typically, this only increases the maximum allowed version requirement."}}},"package-ecosystem-values":{"enum":["bun","bundler","cargo","composer","devcontainers","docker","docker-compose","dotnet-sdk","elm","gitsubmodule","github-actions","gomod","gradle","helm","maven","mix","npm","nuget","pip","pub","swift","terraform","uv"]},"schedule-day":{"type":"string","enum":["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]},"schedule-interval":{"type":"string","enum":["daily","weekly","monthly","quarterly","semiannually","yearly","cron"]},"update":{"type":"object","additionalProperties":false,"properties":{"allow":{"description":"Customize which updates are allowed","type":"array","items":{"type":"object","properties":{"dependency-name":{"type":"string"},"dependency-type":{"$ref":"#/definitions/dependency-type"}},"anyOf":[{"required":["dependency-name"]},{"required":["dependency-type"]}],"additionalProperties":false}},"assignees":{"description":"Assignees to set on pull requests","type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},"commit-message":{"description":"Dependabot attempts to detect your commit message preferences and use similar patterns. Use this option to specify your preferences explicitly.","type":"object","properties":{"prefix":{"description":"A prefix for all commit messages. When you specify a prefix for commit messages, GitHub will automatically add a colon between the defined prefix and the commit message provided the defined prefix ends with a letter, number, closing parenthesis, or closing bracket. This means that, for example, if you end the prefix with a whitespace, there will be no colon added between the prefix and the commit message.","type":"string","maxLength":50},"prefix-development":{"description":"A separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the prefix is used only for updates to dependencies in the Production dependency group. This is not supported by all package ecosystems.","type":"string","maxLength":50},"include":{"description":"Specifies that any prefix is followed by a list of the dependencies updated in the commit.","type":"string","enum":["scope"],"default":"scope"}},"anyOf":[{"required":["prefix"]},{"required":["prefix-development"]},{"required":["include"]}],"additionalProperties":false},"cooldown":{"description":"Defines a cooldown period for dependency updates, allowing updates to be delayed for a configurable number of days. This feature enables users to customize how often Dependabot generates new version updates, offering greater control over update frequency.","type":"object","properties":{"default-days":{"description":"Default cooldown period for dependencies without specific rules (optional).","type":"integer","minimum":0},"semver-major-days":{"description":"Cooldown period for major version updates (optional, applies only to package managers supporting SemVer).","type":"integer","minimum":0},"semver-minor-days":{"description":"Cooldown period for minor version updates (optional, applies only to package managers supporting SemVer).","type":"integer","minimum":0},"semver-patch-days":{"description":"Cooldown period for patch version updates (optional, applies only to package managers supporting SemVer).","type":"integer","minimum":0},"include":{"description":"List of dependencies to apply cooldown (up to 150 items). Supports wildcards (`*`).","type":"array","items":{"type":"string"},"maxItems":150},"exclude":{"description":"List of dependencies excluded from cooldown (up to 150 items). Supports wildcards (`*`).","type":"array","items":{"type":"string"},"maxItems":150}},"additionalProperties":false},"directories":{"description":"Locations of package manifests","type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},"directory":{"description":"Location of package manifests","type":"string","default":"/"},"groups":{"description":"Configure groups for dependencies. Each \'groups\' property is arbitrary will appear in pull request titles and branch names. For example, the code snippet \'{\\"groups\\": {\\"NPM dependencies\\": {\\"patterns\\": [\\"*\\"]}}}\' sets the group name to \'NPM dependencies\'.","type":"object","additionalProperties":{"type":"object","properties":{"applies-to":{"description":"Use to specify a whether the rules in the group apply to version updates or security updates.","type":"string","enum":["version-updates","security-updates"]},"dependency-type":{"description":"Specify a dependency type to be included in the group.","type":"string","enum":["development","production"]},"patterns":{"description":"Define strings of characters that match with a dependency name (or multiple dependency names) to include those dependencies in the group.","type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"minItems":1},"exclude-patterns":{"description":"Exclude certain dependencies from the group. If a dependency is excluded from a group, Dependabot will continue to raise single pull requests to update the dependency to its latest version.","type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"minItems":1},"update-types":{"description":"Specify the semantic versioning level to include in the group","type":"array","items":{"type":"string","enum":["major","minor","patch"]},"minItems":1,"uniqueItems":true}},"anyOf":[{"required":["dependency-type"]},{"required":["patterns"]},{"required":["exclude-patterns"]},{"required":["update-types"]}],"additionalProperties":false},"minProperties":1},"ignore":{"description":"Ignore certain dependencies or versions","type":"array","items":{"type":"object","properties":{"dependency-name":{"description":"Use to ignore updates for dependencies with matching names, optionally using * to match zero or more characters.","type":"string"},"update-types":{"$ref":"#/definitions/update-types","description":"Use to ignore types of updates. You can combine this with \'dependency-name: \\"*\\"\' to ignore particular update-types for all dependencies."},"versions":{"description":"Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager.","type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true}},"anyOf":[{"required":["dependency-name"]},{"required":["update-types"]},{"required":["versions"]}],"additionalProperties":false}},"insecure-external-code-execution":{"$ref":"#/definitions/insecure-external-code-execution","description":"Allow or deny code execution in manifest files"},"labels":{"description":"Labels to set on pull requests","type":"array","items":{"type":"string","minLength":1},"minItems":0,"uniqueItems":true,"default":["dependencies"]},"milestone":{"description":"Associate all pull requests raised for a package manager with a milestone. You need to specify the numeric identifier of the milestone and not its label.","type":"integer","minimum":1},"open-pull-requests-limit":{"description":"Limit number of open pull requests for version updates","type":"integer","minimum":0,"default":5},"package-ecosystem":{"$comment":"These values are restricted by a top-level if-then-else when \'enable-beta-ecosystems\' is not enabled.","description":"Package manager to use","type":"string","anyOf":[{"$ref":"#/definitions/package-ecosystem-values"},{"minLength":1}]},"pull-request-branch-name":{"description":"Pull request branch name preferences","type":"object","properties":{"separator":{"description":"Change separator for PR branch name","type":"string","default":"/","enum":["-","_","/"]}},"required":["separator"],"additionalProperties":false},"rebase-strategy":{"description":"Disable automatic rebasing. \'auto\' is the default and Dependabot will rebase open pull requests when changes are detected. \'disabled\' will disable automatic rebasing.","type":"string","enum":["auto","disabled"],"default":"auto"},"registries":{"$comment":"\'registries\' must be either an array of strings, or the string constant \'*\'.","oneOf":[{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"minItems":1},{"type":"string","const":"*"}]},"reviewers":{"type":"array","items":{"type":"string","minLength":1},"description":"Specify individual reviewers or teams of reviewers for all pull requests raised for a package manager. You must use the full team name, including the organization, as if you were @mentioning the team.","minItems":1,"uniqueItems":true},"schedule":{"description":"Schedule preferences","type":"object","properties":{"interval":{"$ref":"#/definitions/schedule-interval"},"day":{"$ref":"#/definitions/schedule-day","description":"Specify an alternative day to check for updates"},"time":{"type":"string","description":"Specify an alternative time of day to check for updates (format: hh:mm)","pattern":"^([01][0-9]|2[0-3]):[0-5][0-9]$"},"timezone":{"$ref":"#/definitions/timezone","description":"The time zone identifier must be from the Time Zone database maintained by IANA"},"cronjob":{"type":"string","description":"Specify a valid cron expression for updates"}},"allOf":[{"$comment":"If interval type is \'cron\', enforce \'cronjob\' property.","if":{"properties":{"interval":{"const":"cron"}}},"then":{"required":["interval","cronjob"]},"else":{"required":["interval"]}}]},"target-branch":{"description":"Specify a different branch for manifest files and for pull requests.","type":"string","minLength":1},"vendor":{"description":"Tell Dependabot to vendor dependencies when updating them. Don\'t use this option if you\'re using \'gomod\'.","type":"boolean"},"versioning-strategy":{"$ref":"#/definitions/versioning-strategy","description":"How to update manifest version requirements"}},"allOf":[{"required":["package-ecosystem","schedule"]},{"oneOf":[{"required":["directories"]},{"required":["directory"]}]}]},"registry":{"type":"object","description":"The top-level registries key is optional. It allows you to specify authentication details that Dependabot can use to access private package registries.","additionalProperties":false,"patternProperties":{".+":{"type":"object","additionalProperties":false,"properties":{"type":{"description":"Identifies the type of registry.","enum":["cargo-registry","composer-repository","docker-registry","git","hex-organization","hex-repository","maven-repository","npm-registry","nuget-feed","pub-repository","python-index","rubygems-server","terraform-registry"]},"url":{"description":"The URL to use to access the dependencies in this registry. The protocol is optional. If not specified, \'https://\' is assumed. Dependabot adds or ignores trailing slashes as required.","type":"string"},"username":{"description":"The username that Dependabot uses to access the registry.","type":"string"},"password":{"description":"A reference to a Dependabot secret containing the password for the specified user.","type":"string"},"key":{"description":"A reference to a Dependabot secret containing an access key for this registry.","type":"string"},"token":{"description":"A reference to a Dependabot secret containing an access token for this registry.","type":"string"},"replaces-base":{"description":"For registries with type: python-index, if the boolean value is true, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default https://pypi.org/simple).","type":"boolean"},"organization":{"description":"","type":"string"},"repo":{"description":"","type":"string"},"auth-key":{"description":"","type":"string"},"public-key-fingerprint":{"description":"","type":"string"}},"required":["type","url"]}},"minProperties":1}},"properties":{"version":{"title":"Config file version","description":"Dependabot configuration files require this key, and its value must be 2","type":"integer","enum":[2]},"enable-beta-ecosystems":{"description":"Enable ecosystems that have beta-level support","type":"boolean"},"updates":{"type":"array","items":{"$ref":"#/definitions/update","title":"Package Ecosystem","description":"Element for each one package manager that you want GitHub Dependabot to monitor for new versions"}},"registries":{"$ref":"#/definitions/registry"}},"required":["version","updates"],"title":"GitHub Dependabot v2 config","type":"object","allOf":[{"$comment":"If \'enable-beta-ecosystems\' is NOT enabled, enforce known \'package-ecosystem\' values.","if":{"properties":{"enable-beta-ecosystems":{"const":true}},"required":["enable-beta-ecosystems"]},"then":{},"else":{"properties":{"updates":{"items":{"properties":{"package-ecosystem":{"$ref":"#/definitions/package-ecosystem-values"}}}}}}}]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://json-schema.org/draft-07/schema#","$id":"https://www.schemastore.org/dependabot-2.0.json","additionalProperties":false,"definitions":{"timezone":{"type":"string","enum":["Africa/Abidjan","Africa/Accra","Africa/Addis_Ababa","Africa/Algiers","Africa/Asmara","Africa/Asmera","Africa/Bamako","Africa/Bangui","Africa/Banjul","Africa/Bissau","Africa/Blantyre","Africa/Brazzaville","Africa/Bujumbura","Africa/Cairo","Africa/Casablanca","Africa/Ceuta","Africa/Conakry","Africa/Dakar","Africa/Dar_es_Salaam","Africa/Djibouti","Africa/Douala","Africa/El_Aaiun","Africa/Freetown","Africa/Gaborone","Africa/Harare","Africa/Johannesburg","Africa/Juba","Africa/Kampala","Africa/Khartoum","Africa/Kigali","Africa/Kinshasa","Africa/Lagos","Africa/Libreville","Africa/Lome","Africa/Luanda","Africa/Lubumbashi","Africa/Lusaka","Africa/Malabo","Africa/Maputo","Africa/Maseru","Africa/Mbabane","Africa/Mogadishu","Africa/Monrovia","Africa/Nairobi","Africa/Ndjamena","Africa/Niamey","Africa/Nouakchott","Africa/Ouagadougou","Africa/Porto-Novo","Africa/Sao_Tome","Africa/Timbuktu","Africa/Tripoli","Africa/Tunis","Africa/Windhoek","America/Adak","America/Anchorage","America/Anguilla","America/Antigua","America/Araguaina","America/Argentina/Buenos_Aires","America/Argentina/Catamarca","America/Argentina/ComodRivadavia","America/Argentina/Cordoba","America/Argentina/Jujuy","America/Argentina/La_Rioja","America/Argentina/Mendoza","America/Argentina/Rio_Gallegos","America/Argentina/Salta","America/Argentina/San_Juan","America/Argentina/San_Luis","America/Argentina/Tucuman","America/Argentina/Ushuaia","America/Aruba","America/Asuncion","America/Atikokan","America/Atka","America/Bahia","America/Bahia_Banderas","America/Barbados","America/Belem","America/Belize","America/Blanc-Sablon","America/Boa_Vista","America/Bogota","America/Boise","America/Buenos_Aires","America/Cambridge_Bay","America/Campo_Grande","America/Cancun","America/Caracas","America/Catamarca","America/Cayenne","America/Cayman","America/Chicago","America/Chihuahua","America/Coral_Harbour","America/Cordoba","America/Costa_Rica","America/Creston","America/Cuiaba","America/Curacao","America/Danmarkshavn","America/Dawson","America/Dawson_Creek","America/Denver","America/Detroit","America/Dominica","America/Edmonton","America/Eirunepe","America/El_Salvador","America/Ensenada","America/Fort_Nelson","America/Fort_Wayne","America/Fortaleza","America/Glace_Bay","America/Godthab","America/Goose_Bay","America/Grand_Turk","America/Grenada","America/Guadeloupe","America/Guatemala","America/Guayaquil","America/Guyana","America/Halifax","America/Havana","America/Hermosillo","America/Indiana/Indianapolis","America/Indiana/Knox","America/Indiana/Marengo","America/Indiana/Petersburg","America/Indiana/Tell_City","America/Indiana/Vevay","America/Indiana/Vincennes","America/Indiana/Winamac","America/Indianapolis","America/Inuvik","America/Iqaluit","America/Jamaica","America/Jujuy","America/Juneau","America/Kentucky/Louisville","America/Kentucky/Monticello","America/Knox_IN","America/Kralendijk","America/La_Paz","America/Lima","America/Los_Angeles","America/Louisville","America/Lower_Princes","America/Maceio","America/Managua","America/Manaus","America/Marigot","America/Martinique","America/Matamoros","America/Mazatlan","America/Mendoza","America/Menominee","America/Merida","America/Metlakatla","America/Mexico_City","America/Miquelon","America/Moncton","America/Monterrey","America/Montevideo","America/Montreal","America/Montserrat","America/Nassau","America/New_York","America/Nipigon","America/Nome","America/Noronha","America/North_Dakota/Beulah","America/North_Dakota/Center","America/North_Dakota/New_Salem","America/Nuuk","America/Ojinaga","America/Panama","America/Pangnirtung","America/Paramaribo","America/Phoenix","America/Port-au-Prince","America/Port_of_Spain","America/Porto_Acre","America/Porto_Velho","America/Puerto_Rico","America/Punta_Arenas","America/Rainy_River","America/Rankin_Inlet","America/Recife","America/Regina","America/Resolute","America/Rio_Branco","America/Rosario","America/Santa_Isabel","America/Santarem","America/Santiago","America/Santo_Domingo","America/Sao_Paulo","America/Scoresbysund","America/Shiprock","America/Sitka","America/St_Barthelemy","America/St_Johns","America/St_Kitts","America/St_Lucia","America/St_Thomas","America/St_Vincent","America/Swift_Current","America/Tegucigalpa","America/Thule","America/Thunder_Bay","America/Tijuana","America/Toronto","America/Tortola","America/Vancouver","America/Virgin","America/Whitehorse","America/Winnipeg","America/Yakutat","America/Yellowknife","Antarctica/Casey","Antarctica/Davis","Antarctica/DumontDUrville","Antarctica/Macquarie","Antarctica/Mawson","Antarctica/McMurdo","Antarctica/Palmer","Antarctica/Rothera","Antarctica/South_Pole","Antarctica/Syowa","Antarctica/Troll","Antarctica/Vostok","Arctic/Longyearbyen","Asia/Aden","Asia/Almaty","Asia/Amman","Asia/Anadyr","Asia/Aqtau","Asia/Aqtobe","Asia/Ashgabat","Asia/Ashkhabad","Asia/Atyrau","Asia/Baghdad","Asia/Bahrain","Asia/Baku","Asia/Bangkok","Asia/Barnaul","Asia/Beirut","Asia/Bishkek","Asia/Brunei","Asia/Calcutta","Asia/Chita","Asia/Choibalsan","Asia/Chongqing","Asia/Chungking","Asia/Colombo","Asia/Dacca","Asia/Damascus","Asia/Dhaka","Asia/Dili","Asia/Dubai","Asia/Dushanbe","Asia/Famagusta","Asia/Gaza","Asia/Harbin","Asia/Hebron","Asia/Ho_Chi_Minh","Asia/Hong_Kong","Asia/Hovd","Asia/Irkutsk","Asia/Istanbul","Asia/Jakarta","Asia/Jayapura","Asia/Jerusalem","Asia/Kabul","Asia/Kamchatka","Asia/Karachi","Asia/Kashgar","Asia/Kathmandu","Asia/Katmandu","Asia/Khandyga","Asia/Kolkata","Asia/Krasnoyarsk","Asia/Kuala_Lumpur","Asia/Kuching","Asia/Kuwait","Asia/Macao","Asia/Macau","Asia/Magadan","Asia/Makassar","Asia/Manila","Asia/Muscat","Asia/Nicosia","Asia/Novokuznetsk","Asia/Novosibirsk","Asia/Omsk","Asia/Oral","Asia/Phnom_Penh","Asia/Pontianak","Asia/Pyongyang","Asia/Qatar","Asia/Qostanay","Asia/Qyzylorda","Asia/Rangoon","Asia/Riyadh","Asia/Saigon","Asia/Sakhalin","Asia/Samarkand","Asia/Seoul","Asia/Shanghai","Asia/Singapore","Asia/Srednekolymsk","Asia/Taipei","Asia/Tashkent","Asia/Tbilisi","Asia/Tehran","Asia/Tel_Aviv","Asia/Thimbu","Asia/Thimphu","Asia/Tokyo","Asia/Tomsk","Asia/Ujung_Pandang","Asia/Ulaanbaatar","Asia/Ulan_Bator","Asia/Urumqi","Asia/Ust-Nera","Asia/Vientiane","Asia/Vladivostok","Asia/Yakutsk","Asia/Yangon","Asia/Yekaterinburg","Asia/Yerevan","Atlantic/Azores","Atlantic/Bermuda","Atlantic/Canary","Atlantic/Cape_Verde","Atlantic/Faeroe","Atlantic/Faroe","Atlantic/Jan_Mayen","Atlantic/Madeira","Atlantic/Reykjavik","Atlantic/South_Georgia","Atlantic/St_Helena","Atlantic/Stanley","Australia/ACT","Australia/Adelaide","Australia/Brisbane","Australia/Broken_Hill","Australia/Canberra","Australia/Currie","Australia/Darwin","Australia/Eucla","Australia/Hobart","Australia/LHI","Australia/Lindeman","Australia/Lord_Howe","Australia/Melbourne","Australia/North","Australia/NSW","Australia/Perth","Australia/Queensland","Australia/South","Australia/Sydney","Australia/Tasmania","Australia/Victoria","Australia/West","Australia/Yancowinna","Brazil/Acre","Brazil/DeNoronha","Brazil/East","Brazil/West","Canada/Atlantic","Canada/Central","Canada/Eastern","Canada/Mountain","Canada/Newfoundland","Canada/Pacific","Canada/Saskatchewan","Canada/Yukon","Chile/Continental","Chile/EasterIsland","Cuba","Egypt","Eire","Etc/GMT","Etc/GMT+0","Etc/GMT+1","Etc/GMT+10","Etc/GMT+11","Etc/GMT+12","Etc/GMT+2","Etc/GMT+3","Etc/GMT+4","Etc/GMT+5","Etc/GMT+6","Etc/GMT+7","Etc/GMT+8","Etc/GMT+9","Etc/GMT-0","Etc/GMT-1","Etc/GMT-10","Etc/GMT-11","Etc/GMT-12","Etc/GMT-13","Etc/GMT-14","Etc/GMT-2","Etc/GMT-3","Etc/GMT-4","Etc/GMT-5","Etc/GMT-6","Etc/GMT-7","Etc/GMT-8","Etc/GMT-9","Etc/GMT0","Etc/Greenwich","Etc/UCT","Etc/Universal","Etc/UTC","Etc/Zulu","Europe/Amsterdam","Europe/Andorra","Europe/Astrakhan","Europe/Athens","Europe/Belfast","Europe/Belgrade","Europe/Berlin","Europe/Bratislava","Europe/Brussels","Europe/Bucharest","Europe/Budapest","Europe/Busingen","Europe/Chisinau","Europe/Copenhagen","Europe/Dublin","Europe/Gibraltar","Europe/Guernsey","Europe/Helsinki","Europe/Isle_of_Man","Europe/Istanbul","Europe/Jersey","Europe/Kaliningrad","Europe/Kiev","Europe/Kirov","Europe/Kyiv","Europe/Lisbon","Europe/Ljubljana","Europe/London","Europe/Luxembourg","Europe/Madrid","Europe/Malta","Europe/Mariehamn","Europe/Minsk","Europe/Monaco","Europe/Moscow","Europe/Nicosia","Europe/Oslo","Europe/Paris","Europe/Podgorica","Europe/Prague","Europe/Riga","Europe/Rome","Europe/Samara","Europe/San_Marino","Europe/Sarajevo","Europe/Saratov","Europe/Simferopol","Europe/Skopje","Europe/Sofia","Europe/Stockholm","Europe/Tallinn","Europe/Tirane","Europe/Tiraspol","Europe/Ulyanovsk","Europe/Uzhgorod","Europe/Vaduz","Europe/Vatican","Europe/Vienna","Europe/Vilnius","Europe/Volgograd","Europe/Warsaw","Europe/Zagreb","Europe/Zaporozhye","Europe/Zurich","GB","GB-Eire","Hongkong","Iceland","Indian/Antananarivo","Indian/Chagos","Indian/Christmas","Indian/Cocos","Indian/Comoro","Indian/Kerguelen","Indian/Mahe","Indian/Maldives","Indian/Mauritius","Indian/Mayotte","Indian/Reunion","Iran","Israel","Jamaica","Japan","Kwajalein","Libya","Mexico/BajaNorte","Mexico/BajaSur","Mexico/General","Navajo","NZ","NZ-CHAT","Pacific/Apia","Pacific/Auckland","Pacific/Bougainville","Pacific/Chatham","Pacific/Chuuk","Pacific/Easter","Pacific/Efate","Pacific/Enderbury","Pacific/Fakaofo","Pacific/Fiji","Pacific/Funafuti","Pacific/Galapagos","Pacific/Gambier","Pacific/Guadalcanal","Pacific/Guam","Pacific/Honolulu","Pacific/Johnston","Pacific/Kanton","Pacific/Kiritimati","Pacific/Kosrae","Pacific/Kwajalein","Pacific/Majuro","Pacific/Marquesas","Pacific/Midway","Pacific/Nauru","Pacific/Niue","Pacific/Norfolk","Pacific/Noumea","Pacific/Pago_Pago","Pacific/Palau","Pacific/Pitcairn","Pacific/Pohnpei","Pacific/Ponape","Pacific/Port_Moresby","Pacific/Rarotonga","Pacific/Saipan","Pacific/Samoa","Pacific/Tahiti","Pacific/Tarawa","Pacific/Tongatapu","Pacific/Truk","Pacific/Wake","Pacific/Wallis","Pacific/Yap","Poland","Portugal","PRC","ROC","Singapore","US/Alaska","US/Aleutian","US/Arizona","US/Central","US/East-Indiana","US/Eastern","US/Hawaii","US/Indiana-Starke","US/Michigan","US/Mountain","US/Pacific","US/Samoa"]},"dependency-type":{"type":"string","enum":["direct","indirect","all","production","development"],"x-intellij-enum-metadata":{"direct":{"description":"All explicitly defined dependencies."},"indirect":{"description":"Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies)."},"all":{"description":"All explicitly defined dependencies. For bundler, pip, composer, cargo, also the dependencies of direct dependencies."},"production":{"description":"Only dependencies in the \'Product dependency group\'."},"development":{"description":"Only dependencies in the \'Development dependency group\'."}}},"update-types":{"type":"array","items":{"type":"string","enum":["version-update:semver-major","version-update:semver-minor","version-update:semver-patch"]},"minItems":1,"uniqueItems":true},"insecure-external-code-execution":{"type":"string","enum":["allow","deny"]},"versioning-strategy":{"type":"string","enum":["auto","increase","increase-if-necessary","lockfile-only","widen"],"x-intellij-enum-metadata":{"auto":{"description":"Try to differentiate between apps and libraries. Use \'increase\' for apps and \'widen\' for libraries."},"increase":{"description":"Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound."},"increase-if-necessary":{"description":"Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint."},"lockfile-only":{"description":"Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes."},"widen":{"description":"Widen the allowed version requirements to include both the new and old versions, when possible. Typically, this only increases the maximum allowed version requirement."}}},"package-ecosystem-values":{"enum":["bun","bundler","cargo","composer","devcontainers","docker","docker-compose","dotnet-sdk","elm","gitsubmodule","github-actions","gomod","gradle","helm","maven","mix","npm","nuget","pip","pub","swift","terraform","uv"]},"schedule-day":{"type":"string","enum":["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]},"schedule-interval":{"type":"string","enum":["daily","weekly","monthly","quarterly","semiannually","yearly","cron"]},"update":{"type":"object","additionalProperties":false,"properties":{"allow":{"description":"Customize which updates are allowed","type":"array","items":{"type":"object","properties":{"dependency-name":{"type":"string"},"dependency-type":{"$ref":"#/definitions/dependency-type"}},"anyOf":[{"required":["dependency-name"]},{"required":["dependency-type"]}],"additionalProperties":false}},"assignees":{"description":"Assignees to set on pull requests","type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},"commit-message":{"description":"Dependabot attempts to detect your commit message preferences and use similar patterns. Use this option to specify your preferences explicitly.","type":"object","properties":{"prefix":{"description":"A prefix for all commit messages. When you specify a prefix for commit messages, GitHub will automatically add a colon between the defined prefix and the commit message provided the defined prefix ends with a letter, number, closing parenthesis, or closing bracket. This means that, for example, if you end the prefix with a whitespace, there will be no colon added between the prefix and the commit message.","type":"string","maxLength":50},"prefix-development":{"description":"A separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the prefix is used only for updates to dependencies in the Production dependency group. This is not supported by all package ecosystems.","type":"string","maxLength":50},"include":{"description":"Specifies that any prefix is followed by a list of the dependencies updated in the commit.","type":"string","enum":["scope"],"default":"scope"}},"anyOf":[{"required":["prefix"]},{"required":["prefix-development"]},{"required":["include"]}],"additionalProperties":false},"cooldown":{"description":"Defines a cooldown period for dependency updates, allowing updates to be delayed for a configurable number of days. This feature enables users to customize how often Dependabot generates new version updates, offering greater control over update frequency.","type":"object","properties":{"default-days":{"description":"Default cooldown period for dependencies without specific rules (optional).","type":"integer","minimum":0},"semver-major-days":{"description":"Cooldown period for major version updates (optional, applies only to package managers supporting SemVer).","type":"integer","minimum":0},"semver-minor-days":{"description":"Cooldown period for minor version updates (optional, applies only to package managers supporting SemVer).","type":"integer","minimum":0},"semver-patch-days":{"description":"Cooldown period for patch version updates (optional, applies only to package managers supporting SemVer).","type":"integer","minimum":0},"include":{"description":"List of dependencies to apply cooldown (up to 150 items). Supports wildcards (`*`).","type":"array","items":{"type":"string"},"maxItems":150},"exclude":{"description":"List of dependencies excluded from cooldown (up to 150 items). Supports wildcards (`*`).","type":"array","items":{"type":"string"},"maxItems":150}},"additionalProperties":false},"directories":{"description":"Locations of package manifests","type":"array","items":{"type":"string","minLength":1},"minItems":1,"uniqueItems":true},"directory":{"description":"Location of package manifests","type":"string","default":"/"},"groups":{"description":"Configure groups for dependencies. Each \'groups\' property is arbitrary will appear in pull request titles and branch names. For example, the code snippet \'{\\"groups\\": {\\"NPM dependencies\\": {\\"patterns\\": [\\"*\\"]}}}\' sets the group name to \'NPM dependencies\'.","type":"object","additionalProperties":{"type":"object","properties":{"applies-to":{"description":"Use to specify a whether the rules in the group apply to version updates or security updates.","type":"string","enum":["version-updates","security-updates"]},"dependency-type":{"description":"Specify a dependency type to be included in the group.","type":"string","enum":["development","production"]},"patterns":{"description":"Define strings of characters that match with a dependency name (or multiple dependency names) to include those dependencies in the group.","type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"minItems":1},"exclude-patterns":{"description":"Exclude certain dependencies from the group. If a dependency is excluded from a group, Dependabot will continue to raise single pull requests to update the dependency to its latest version.","type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"minItems":1},"update-types":{"description":"Specify the semantic versioning level to include in the group","type":"array","items":{"type":"string","enum":["major","minor","patch"]},"minItems":1,"uniqueItems":true}},"anyOf":[{"required":["dependency-type"]},{"required":["patterns"]},{"required":["exclude-patterns"]},{"required":["update-types"]}],"additionalProperties":false},"minProperties":1},"ignore":{"description":"Ignore certain dependencies or versions","type":"array","items":{"type":"object","properties":{"dependency-name":{"description":"Use to ignore updates for dependencies with matching names, optionally using * to match zero or more characters.","type":"string"},"update-types":{"$ref":"#/definitions/update-types","description":"Use to ignore types of updates. You can combine this with \'dependency-name: \\"*\\"\' to ignore particular update-types for all dependencies."},"versions":{"description":"Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager.","type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true}},"anyOf":[{"required":["dependency-name"]},{"required":["update-types"]},{"required":["versions"]}],"additionalProperties":false}},"insecure-external-code-execution":{"$ref":"#/definitions/insecure-external-code-execution","description":"Allow or deny code execution in manifest files"},"labels":{"description":"Labels to set on pull requests","type":"array","items":{"type":"string","minLength":1},"minItems":0,"uniqueItems":true,"default":["dependencies"]},"milestone":{"description":"Associate all pull requests raised for a package manager with a milestone. You need to specify the numeric identifier of the milestone and not its label.","type":"integer","minimum":1},"open-pull-requests-limit":{"description":"Limit number of open pull requests for version updates","type":"integer","minimum":0,"default":5},"package-ecosystem":{"$comment":"These values are restricted by a top-level if-then-else when \'enable-beta-ecosystems\' is not enabled.","description":"Package manager to use","type":"string","anyOf":[{"$ref":"#/definitions/package-ecosystem-values"},{"minLength":1}]},"pull-request-branch-name":{"description":"Pull request branch name preferences","type":"object","properties":{"separator":{"description":"Change separator for PR branch name","type":"string","default":"/","enum":["-","_","/"]}},"required":["separator"],"additionalProperties":false},"rebase-strategy":{"description":"Disable automatic rebasing. \'auto\' is the default and Dependabot will rebase open pull requests when changes are detected. \'disabled\' will disable automatic rebasing.","type":"string","enum":["auto","disabled"],"default":"auto"},"registries":{"$comment":"\'registries\' must be either an array of strings, or the string constant \'*\'.","oneOf":[{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true,"minItems":1},{"type":"string","const":"*"}]},"reviewers":{"type":"array","items":{"type":"string","minLength":1},"description":"Specify individual reviewers or teams of reviewers for all pull requests raised for a package manager. You must use the full team name, including the organization, as if you were @mentioning the team.","minItems":1,"uniqueItems":true},"schedule":{"description":"Schedule preferences","type":"object","properties":{"interval":{"$ref":"#/definitions/schedule-interval"},"day":{"$ref":"#/definitions/schedule-day","description":"Specify an alternative day to check for updates"},"time":{"type":"string","description":"Specify an alternative time of day to check for updates (format: hh:mm)","pattern":"^([01][0-9]|2[0-3]):[0-5][0-9]$"},"timezone":{"$ref":"#/definitions/timezone","description":"The time zone identifier must be from the Time Zone database maintained by IANA"},"cronjob":{"type":"string","description":"Specify a valid cron expression for updates"}},"allOf":[{"$comment":"If interval type is \'cron\', enforce \'cronjob\' property.","if":{"properties":{"interval":{"const":"cron"}}},"then":{"required":["interval","cronjob"]},"else":{"required":["interval"]}}]},"target-branch":{"description":"Specify a different branch for manifest files and for pull requests.","type":"string","minLength":1},"vendor":{"description":"Tell Dependabot to vendor dependencies when updating them. Don\'t use this option if you\'re using \'gomod\'.","type":"boolean"},"versioning-strategy":{"$ref":"#/definitions/versioning-strategy","description":"How to update manifest version requirements"}},"allOf":[{"required":["package-ecosystem","schedule"]},{"oneOf":[{"required":["directories"]},{"required":["directory"]}]}]},"registry":{"type":"object","description":"The top-level registries key is optional. It allows you to specify authentication details that Dependabot can use to access private package registries.","additionalProperties":false,"patternProperties":{".+":{"type":"object","additionalProperties":false,"properties":{"type":{"description":"Identifies the type of registry.","enum":["cargo-registry","composer-repository","docker-registry","git","hex-organization","hex-repository","maven-repository","npm-registry","nuget-feed","pub-repository","python-index","rubygems-server","terraform-registry"]},"url":{"description":"The URL to use to access the dependencies in this registry. The protocol is optional. If not specified, \'https://\' is assumed. Dependabot adds or ignores trailing slashes as required.","type":"string"},"username":{"description":"The username that Dependabot uses to access the registry.","type":"string"},"password":{"description":"A reference to a Dependabot secret containing the password for the specified user.","type":"string"},"key":{"description":"A reference to a Dependabot secret containing an access key for this registry.","type":"string"},"token":{"description":"A reference to a Dependabot secret containing an access token for this registry.","type":"string"},"replaces-base":{"description":"For registries with type: python-index, if the boolean value is true, pip resolves dependencies by using the specified URL rather than the base URL of the Python Package Index (by default https://pypi.org/simple).","type":"boolean"},"organization":{"description":"","type":"string"},"repo":{"description":"","type":"string"},"auth-key":{"description":"","type":"string"},"public-key-fingerprint":{"description":"","type":"string"}},"required":["type","url"]}},"minProperties":1}},"properties":{"version":{"title":"Config file version","description":"Dependabot configuration files require this key, and its value must be 2","type":"integer","enum":[2]},"enable-beta-ecosystems":{"description":"Enable ecosystems that have beta-level support","type":"boolean"},"updates":{"type":"array","items":{"$ref":"#/definitions/update","title":"Package Ecosystem","description":"Element for each one package manager that you want GitHub Dependabot to monitor for new versions"}},"registries":{"$ref":"#/definitions/registry"}},"required":["version","updates"],"title":"GitHub Dependabot v2 config","type":"object","allOf":[{"$comment":"If \'enable-beta-ecosystems\' is NOT enabled, enforce known \'package-ecosystem\' values.","if":{"properties":{"enable-beta-ecosystems":{"const":true}},"required":["enable-beta-ecosystems"]},"then":{},"else":{"properties":{"updates":{"items":{"properties":{"package-ecosystem":{"$ref":"#/definitions/package-ecosystem-values"}}}}}}}]}');
 
 /***/ }),
 
-/***/ 894:
+/***/ 3420:
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"http://json-schema.org/draft-07/schema#","$id":"https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#","description":"Meta-schema for $data reference (JSON Schema extension proposal)","type":"object","required":["$data"],"properties":{"$data":{"type":"string","anyOf":[{"format":"relative-json-pointer"},{"format":"json-pointer"}]}},"additionalProperties":false}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://json-schema.org/draft-07/schema#","$id":"https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#","description":"Meta-schema for $data reference (JSON Schema extension proposal)","type":"object","required":["$data"],"properties":{"$data":{"type":"string","anyOf":[{"format":"relative-json-pointer"},{"format":"json-pointer"}]}},"additionalProperties":false}');
 
 /***/ }),
 
-/***/ 6680:
+/***/ 8198:
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"http://json-schema.org/draft-07/schema#","$id":"http://json-schema.org/draft-07/schema#","title":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"nonNegativeInteger":{"type":"integer","minimum":0},"nonNegativeIntegerDefault0":{"allOf":[{"$ref":"#/definitions/nonNegativeInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"uniqueItems":true,"default":[]}},"type":["object","boolean"],"properties":{"$id":{"type":"string","format":"uri-reference"},"$schema":{"type":"string","format":"uri"},"$ref":{"type":"string","format":"uri-reference"},"$comment":{"type":"string"},"title":{"type":"string"},"description":{"type":"string"},"default":true,"readOnly":{"type":"boolean","default":false},"examples":{"type":"array","items":true},"multipleOf":{"type":"number","exclusiveMinimum":0},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"number"},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"number"},"maxLength":{"$ref":"#/definitions/nonNegativeInteger"},"minLength":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"$ref":"#"},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":true},"maxItems":{"$ref":"#/definitions/nonNegativeInteger"},"minItems":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"contains":{"$ref":"#"},"maxProperties":{"$ref":"#/definitions/nonNegativeInteger"},"minProperties":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"$ref":"#"},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"propertyNames":{"format":"regex"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"propertyNames":{"$ref":"#"},"const":true,"enum":{"type":"array","items":true,"minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"format":{"type":"string"},"contentMediaType":{"type":"string"},"contentEncoding":{"type":"string"},"if":{"$ref":"#"},"then":{"$ref":"#"},"else":{"$ref":"#"},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"}},"default":true}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"http://json-schema.org/draft-07/schema#","$id":"http://json-schema.org/draft-07/schema#","title":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"nonNegativeInteger":{"type":"integer","minimum":0},"nonNegativeIntegerDefault0":{"allOf":[{"$ref":"#/definitions/nonNegativeInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"uniqueItems":true,"default":[]}},"type":["object","boolean"],"properties":{"$id":{"type":"string","format":"uri-reference"},"$schema":{"type":"string","format":"uri"},"$ref":{"type":"string","format":"uri-reference"},"$comment":{"type":"string"},"title":{"type":"string"},"description":{"type":"string"},"default":true,"readOnly":{"type":"boolean","default":false},"examples":{"type":"array","items":true},"multipleOf":{"type":"number","exclusiveMinimum":0},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"number"},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"number"},"maxLength":{"$ref":"#/definitions/nonNegativeInteger"},"minLength":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"$ref":"#"},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":true},"maxItems":{"$ref":"#/definitions/nonNegativeInteger"},"minItems":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"contains":{"$ref":"#"},"maxProperties":{"$ref":"#/definitions/nonNegativeInteger"},"minProperties":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"$ref":"#"},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"propertyNames":{"format":"regex"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"propertyNames":{"$ref":"#"},"const":true,"enum":{"type":"array","items":true,"minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"format":{"type":"string"},"contentMediaType":{"type":"string"},"contentEncoding":{"type":"string"},"if":{"$ref":"#"},"then":{"$ref":"#"},"else":{"$ref":"#"},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"}},"default":true}');
 
 /***/ })
 
@@ -18688,7 +18687,7 @@ module.exports = JSON.parse('{"$schema":"http://json-schema.org/draft-07/schema#
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nccwpck_require__(3109);
+/******/ 	var __webpack_exports__ = __nccwpck_require__(5915);
 /******/ 	module.exports = __webpack_exports__;
 /******/ 	
 /******/ })()
