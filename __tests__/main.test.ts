@@ -13,7 +13,17 @@ test('packaged action validates cooldown config', () => {
   const options: cp.ExecFileSyncOptions = {
     env: process.env
   }
-  expect(() => cp.execFileSync(np, [ip], options)).not.toThrow()
+  try {
+    cp.execFileSync(np, [ip], options)
+  } catch (error) {
+    const execError = error as Error & {
+      stdout?: Buffer | string
+      stderr?: Buffer | string
+    }
+    throw new Error(
+      `packaged action failed\nstdout:\n${execError.stdout?.toString()}\nstderr:\n${execError.stderr?.toString()}`
+    )
+  }
 })
 describe('validateDependabot', () => {
   test('no errors', async () => {
