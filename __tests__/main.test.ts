@@ -3,17 +3,27 @@ import * as cp from 'child_process'
 import * as path from 'path'
 import {validateDependabot} from '../src/main'
 
-// shows how the runner will run a javascript action with env / stdout protocol
-test.skip('test runs', () => {
-  process.env['INPUT_PATH'] = '.github/dependabot.yml'
+// shows how the runner will run the packaged javascript action with env / stdout protocol
+test('packaged action validates cooldown config', () => {
+  process.env['INPUT_PATH'] = '__tests__/dependabot-cooldown.yml'
   process.env['INPUT_SUCCESS_MESSAGE'] = '✅dependabot config looks good 👍'
   process.env['INPUT_FAILURE_MESSAGE'] = '🚫 dependabot errors'
   const np = process.execPath
-  const ip = path.join(__dirname, '..', 'lib', 'main.js')
+  const ip = path.join(__dirname, '..', 'dist', 'index.js')
   const options: cp.ExecFileSyncOptions = {
     env: process.env
   }
-  console.log(cp.execFileSync(np, [ip], options).toString())
+  try {
+    cp.execFileSync(np, [ip], options)
+  } catch (error) {
+    const execError = error as Error & {
+      stdout?: Buffer | string
+      stderr?: Buffer | string
+    }
+    throw new Error(
+      `packaged action failed\nstdout:\n${execError.stdout?.toString()}\nstderr:\n${execError.stderr?.toString()}`
+    )
+  }
 })
 describe('validateDependabot', () => {
   test('no errors', async () => {
